@@ -76,13 +76,4 @@ public class LoginAction extends ActionSupport {
     public String getPassword() { return (this.password); }
     public void setPassword(String password) { this.password  = password; }
 
-    
-    @Override
-    public void validate() {
-    	if (!this.username.startsWith("Us")){
-    		addFieldError("username", "Username muss mit Us beginnen!");
-    	}
-    	super.validate();
-    }
-
 }

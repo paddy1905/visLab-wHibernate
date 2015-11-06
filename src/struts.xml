@@ -6,7 +6,7 @@
 <struts>
 
     <constant name="struts.enable.DynamicMethodInvocation" value="false" />
-    <constant name="struts.devMode" value="false" />
+    <constant name="struts.devMode" value="true" />
     <constant name="struts.custom.i18n.resources" value="ApplicationResources" /> 
     
 
@@ -23,10 +23,37 @@
         </action>
         
         <action name="User_login" class="vislabExample.controller.action.LoginAction">
-            <result name="success">/pages/welcome.jsp</result>
+            <result name="success">/pages/Home.jsp</result>
             <result name="input">/pages/Login.jsp</result>
-            <result name="registrieren">/pages/registration.jsp</result>
+           <!--  <result name="registrieren">/pages/registration.jsp</result> -->
         </action>
+        
+        <action name="register">
+        	<result>/pages/Registration.jsp</result>
+        </action>
+        
+         <action name="User_registred" class="vislabExample.controller.action.RegisterAction">
+        	<result name="success">/pages/Home.jsp</result>
+        	<result name="input">/pages/Registration.jsp</result>
+        </action>
+        
+        <action name="openSearch">
+        	<result>/pages/Search.jsp</result>
+        </action>
+        
+         <action name="openHome">
+        	<result>/pages/Home.jsp</result>
+        </action>
+        
+         <action name="openProduct">
+        	<result>/pages/Products.jsp</result>
+        </action>
+        
+        
+        <action name ="Suchen" class = "vislabExample.controller.action.SearchAction">
+        	<result name = "success">/pages/Search.jsp</result>
+        </action>
+        
     </package>
     
 

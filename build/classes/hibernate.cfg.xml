@@ -6,11 +6,11 @@
     <session-factory >
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.connection.password">vislab??</property>
+        <property name="hibernate.connection.password">vislab30</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:@iwi-lkit-db-01:1521:LAB1</property>
-        <property name="hibernate.connection.username">vislab??</property>
+        <property name="hibernate.connection.username">vislab30</property>
         <property name="hibernate.current_session_context_class">thread</property>
-        <property name="hibernate.default_schema">VISLAB??</property>
+        <property name="hibernate.default_schema">VISLAB30</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle9iDialect</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.show_sql">true</property>

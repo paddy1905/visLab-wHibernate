@@ -4,11 +4,10 @@
 
 <html>
 	<head>
-	    
+	 <link rel="stylesheet" type="text/css" href="common/bootstrap/bootstrap.min.css">   
 	</head>
 	<body>
 		Willkommen auf der Start-Seite des Beispielprojektes des VIS-Labors
-		
 		<p><a href="<s:url action="User_forward"/>">Zur Login-Seite</a> </p>
 		
 	</body>
