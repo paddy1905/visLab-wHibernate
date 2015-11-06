@@ -18,6 +18,7 @@
 					<label><s:text name="Username"></s:text></label>
 					<s:textfield name="username" cssClass ="form-control"/> 
 				</div>
+				ss
 			
 				<div class = "form-group">
 					<label><s:text name="Passwort"></s:text></label>

@@ -25,16 +25,15 @@
         <action name="User_login" class="vislabExample.controller.action.LoginAction">
             <result name="success">/pages/Home.jsp</result>
             <result name="input">/pages/Login.jsp</result>
-           <!--  <result name="registrieren">/pages/registration.jsp</result> -->
         </action>
         
         <action name="register">
-        	<result>/pages/Registration.jsp</result>
+        	<result>/pages/Registry.jsp</result>
         </action>
         
          <action name="User_registred" class="vislabExample.controller.action.RegisterAction">
         	<result name="success">/pages/Home.jsp</result>
-        	<result name="input">/pages/Registration.jsp</result>
+        	<result name="input">/pages/Registry.jsp</result>
         </action>
         
         <action name="openSearch">
