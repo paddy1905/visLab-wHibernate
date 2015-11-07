@@ -16,12 +16,12 @@
 			<s:form action="User_login" focusElement="username" theme = "simple"> 
 				
 				<div class = "form-group">
-					<label><s:text name="Username"></s:text></label>
+					<label>Benutzername</label>
 					<s:textfield name="username" cssClass ="form-control"/>
 				</div>
 			
 				<div class = "form-group">
-					<label><s:text name="Passwort"></s:text></label>
+					<label>Passwort</label>
 					<s:password name="password" cssClass = "form-control" /><br>
 				</div>
 				
@@ -33,14 +33,16 @@
 					<p><a href="<s:url action="register"/>">Noch nicht registriert?</a> </p>
  				</div>
 			</s:form>
+			
+			<div style="padding-top: 5%;">
+				<s:if test="hasActionErrors()">
+					<div class="alert alert-danger" role="alert">
+	  					<span class="sr-only">Error:</span>
+	  						<s:actionerror cssStyle="color: #DE3A75; list-style: none;"/>
+	  				</div>
+  				</s:if>
+  			</div>
 		</div>
-	</div>
-	
-
-
-	 <font color="red">
-	 	<s:actionerror label="label" />
-	 </font>
-	 
-  </body>
+	</div>	 
+ </body>
 </html>

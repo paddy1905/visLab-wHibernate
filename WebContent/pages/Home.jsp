@@ -8,13 +8,25 @@
 		<link rel="stylesheet" type="text/css" href="common/bootstrap/bootstrap.min.css">
 	</head>
 	<body>
-		<s:div style="padding-left: 2%; padding-right: 2%; padding-top: 0.5%;">
-			<ul class ="nav nav-tabs">
-				<li class="active"><a href="<s:url action="openHome"/>">Home</a> </li>
-				<li><a href="<s:url action="openSearch"/>">Suche</a> </li>
-				<li><a href="<s:url action="openProduct"/>">Produkte</a> </li>
-			</ul>
-	 		<p>Herzlich Willkommen</p>
-	 	</s:div>
+		<nav class="navbar navbar-inverse">
+ 			<div class="container-fluid">
+    			<div class="navbar-header">
+      				<a class="navbar-brand" href="#">MyShop</a>
+   				</div>
+    			<div>
+	      			<ul class="nav navbar-nav">
+	       				<li class="active"><a href="<s:url action ="openHome"/>">Home</a></li>
+	       				<li><a href="<s:url action ="openSearch"/>">Suche</a></li>
+	       				<li><a href="<s:url action ="openProduct"/>">Produkte</a></li>
+	      			</ul>
+	      			<ul class="nav navbar-nav navbar-right">
+        				<li><a href="<s:url action = "logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      				</ul>
+	   			 </div>
+  			</div>
+		</nav>
+		<s:property value="firstname"/>	
 	</body>
 </html>
+
+

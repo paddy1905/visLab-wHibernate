@@ -14,8 +14,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle9iDialect</property>
         <property name="hibernate.format_sql">true</property>
         <property name="hibernate.show_sql">true</property>
-        
+          
          <mapping class="vislabExample.model.db.Customer" />
-       
+       	 <mapping class="vislabExample.model.db.Product" />
     </session-factory>
 </hibernate-configuration>

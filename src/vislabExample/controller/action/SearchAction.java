@@ -18,13 +18,14 @@ public class SearchAction extends ActionSupport{
 	private String description;
 	private double preisMin;
 	private double preisMax;
+	private String category;
 	
 	
 	private ArrayList<vislabExample.model.db.Product> result;
 	
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
-		result = productManager.getProducts();
+		productManager.getProductsBySearch(description, preisMin, preisMax, category);
 		return "success";
 	}
 	
@@ -35,13 +36,15 @@ public class SearchAction extends ActionSupport{
 	public void setResult(ArrayList<Product> result) {
 		this.result = result;
 	}
-	
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public double getPreisMin() {
 		return preisMin;
 	}
@@ -57,4 +60,15 @@ public class SearchAction extends ActionSupport{
 	public void setPreisMax(double preisMax) {
 		this.preisMax = preisMax;
 	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	
+
+	
 }

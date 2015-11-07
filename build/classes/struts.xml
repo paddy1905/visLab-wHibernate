@@ -48,6 +48,10 @@
         	<result>/pages/Products.jsp</result>
         </action>
         
+         <action name="logout">
+        	<result>/pages/Login.jsp</result>
+        </action>
+        
         
         <action name ="Suchen" class = "vislabExample.controller.action.SearchAction">
         	<result name = "success">/pages/Search.jsp</result>

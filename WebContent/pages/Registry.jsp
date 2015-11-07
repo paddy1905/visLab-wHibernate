@@ -15,29 +15,28 @@
 			<h1>Registrierung</h1>
 			<s:form action="User_registred" theme = "simple">   
 				<div class = "form-group">
-					<label><s:text name="Username"></s:text></label>
+					<label>Benutzername</label>
 					<s:textfield name="username" cssClass ="form-control"/> 
 				</div>
-				ss
 			
 				<div class = "form-group">
-					<label><s:text name="Passwort"></s:text></label>
+					<label>Passwort</label>
 					<s:password name="password" cssClass = "form-control" /><br>
 				</div>
 				
 				<div class = "form-group">
-					<label><s:text name="Passwort wiederholen"></s:text></label>
+					<label>Passwort wiederholen</label>
 					<s:password name="passwordRepeat" cssClass = "form-control" /><br>
 				</div>
 				
 				<div class = "form-group">
-					<label><s:text name="Vorname"></s:text></label>
-					<s:password name="firstName" cssClass = "form-control" /><br>
+					<label>Vorname</label>
+					<s:textfield name="firstname" cssClass = "form-control" /><br>
 				</div>
 				
 				<div class = "form-group">
-					<label><s:text name="Nachname"></s:text></label>
-					<s:password name="lastName" cssClass = "form-control" /><br>
+					<label>Nachname</label>
+					<s:textfield name="lastname" cssClass = "form-control" /><br>
 				</div>
 				
 				<div class = "pull-right">

@@ -28,31 +28,24 @@ public class LoginAction extends ActionSupport {
 	   	CustomerManager customerManager = new CustomerManager();
 	   	
 		Customer customer = customerManager.getCustomerByPrimaryKey(getUsername());
+		
+		if(customer == null) {
+			addActionError("Benutzer nicht bekannt");
+			return "input";
+		}
 	    
-	   	if (customer == null) {
-			customer = new Customer();
+		if (customer.getPassword().equals(getPassword())) {
+			setFirstname(customer.getFirstname());
+			setLastname(customer.getLastname());	
+			return SUCCESS;
+		} else {
+			addActionError("Passwort falsch");
+			return "input"; 
+		}
+		
+	 }
 
-			customer.setPassword(getPassword());
-			customer.setUsername(getUsername());
-			// customerManager.saveCustomer(customer) ;
-			
-			addActionError(getText("error.username.register"));
-			return "registrieren";
-	   	}
-	   	else {
-			if (customer.getPassword().equals(getPassword())) {
-				setFirstname(customer.getFirstname());
-				setLastname(customer.getLastname());	
-				return SUCCESS;
-			} 
-			else {
-				addActionError(getText("error.user.passwordforgotten"));
-				addActionError("Bitte geben Sie das richtige Passwort ein!");
-				return "input";
-			}
-	   	}
-
-	}
+	
 	
 	public String getLastname() {
 		return lastname;

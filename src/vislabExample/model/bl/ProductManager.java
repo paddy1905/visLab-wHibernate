@@ -1,31 +1,43 @@
 package vislabExample.model.bl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
+import vislabExample.model.db.Customer;
 import vislabExample.model.db.Product;
+import vislabExample.model.sf.HibernateUtil;
 
 public class ProductManager {
 	
-	ArrayList<Product> result;
 	
-	public ArrayList<Product> getProducts() {
-		result = new ArrayList<>();
-		Product product1 = new Product("Shirt", 15.0, "Kleidung");
-		result.add(product1);
-		Product product2 = new Product("Vans", 50.0, "Schuhe");
-		result.add(product2);
-		Product product3 = new Product("Uhr", 10.0, "Schmuck");
-		result.add(product3);
-		return result;
+	
+	
+	public void getProductsBySearch(String description, 
+			double preisMin, double preisMax, String category ) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
 		
+		Criteria crit = session.createCriteria(Product.class);
+//		crit.add(Restrictions.between("price", preisMin, preisMax));
+//		crit.add(Restrictions.eq("category", category));
+//		crit.add(Restrictions.like("description", "%"+description+"%"));
+		List lol = crit.list();
 		
-//		for(int i = 0; i < productList.size(); i ++){			
-//			if(preisMin < productList.get(i).getPrice() && preisMax > productList.get(i).getPrice() && 
-//					description.contains(productList.get(i).getDescription())){
-//				result.add(productList.get(i));
-//			}
-//		}
+		Iterator iter = lol.iterator();
+		if(!iter.hasNext()){
+			System.out.println("NICHTS");
+		}
+		while(iter.hasNext()){
+			Product product = (Product) iter.next();
+			System.out.println(product.getCategory());
+		}
+		
+
 	}
 
 }

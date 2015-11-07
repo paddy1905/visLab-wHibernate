@@ -2,6 +2,9 @@ package vislabExample.controller.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import vislabExample.model.bl.CustomerManager;
+import vislabExample.model.db.Customer;
+
 
 public class RegisterAction extends ActionSupport {
 
@@ -10,22 +13,34 @@ public class RegisterAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String username = null;
-	private String password = null;
-	private String passwordRepeat = null;
-	private String firstName = null;
-	private String lastName = null;
+	private String username;
+	private String password;
+	private String passwordRepeat;
+	private String firstname;
+	private String lastname;
 	
 	public String execute() {
-		return "success";
+		CustomerManager manager = new CustomerManager();
+		Customer customer = manager.getCustomerByPrimaryKey(username);
 		
+		if(customer == null) {
+			Customer newCustomer = new Customer();
+			newCustomer.setUsername(username);
+			newCustomer.setPassword(password);
+			newCustomer.setFirstname(firstname);
+			newCustomer.setLastname(lastname);
+			manager.saveCustomer(newCustomer);
+			return "success";
+		} else {
+			return "fail";
+		}	
 	}
 	
-	public void validate() {
-		if(!this.password.equals(this.passwordRepeat)){
-			addFieldError("passwordRepeat", "Passwörter sind nicht identisch!");
-		}
-	}
+//	public void validate() {
+//		if(!this.password.equals(this.passwordRepeat)){
+//			addFieldError("passwordRepeat", "Passwörter sind nicht identisch!");
+//		}
+//	}
 	
 	
 	
@@ -60,19 +75,18 @@ public class RegisterAction extends ActionSupport {
 		this.passwordRepeat = passwordRepeat;
 	}
 	
-	public String getFirstName() {
-		return firstName;
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstName) {
+		this.firstname = firstName;
 	}
 	
-	
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastName) {
+		this.lastname = lastName;
 	}
 	
 	
