@@ -36,16 +36,21 @@
         	<result name="input">/pages/Registry.jsp</result>
         </action>
         
-        <action name="openSearch">
-        	<result>/pages/Search.jsp</result>
+        <action name="openSearch" class ="vislabExample.controller.action.OpenSearchAction">
+        	<result name ="success">/pages/Search.jsp</result>
         </action>
+        
+        <action name="openAdminArea">
+       		<result>/pages/Adminbereich.jsp</result>
+        </action>
+        
         
          <action name="openHome">
         	<result>/pages/Home.jsp</result>
         </action>
         
-         <action name="openProduct">
-        	<result>/pages/Products.jsp</result>
+         <action name="openProduct" class ="vislabExample.controller.action.OpenSearchAction">
+        	<result name ="success">/pages/Products.jsp</result>
         </action>
         
          <action name="logout">

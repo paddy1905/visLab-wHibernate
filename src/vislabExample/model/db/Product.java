@@ -2,8 +2,16 @@ package vislabExample.model.db;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="PRODUCT")
@@ -17,7 +25,15 @@ public class Product implements java.io.Serializable {
 	/**
 	 * 
 	 */
-	@Id   
+	
+	
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "wtStatSEQ")
+//	@SequenceGenerator(name = "wtStatSEQ", sequenceName = "seq")
+	@Id
+	@Column(name = "id")
+	private int id;
+	
+	  
     @Column(name="name")
 
  	private String name;
@@ -28,8 +44,13 @@ public class Product implements java.io.Serializable {
     @Column(name="price")
 	private double price;
 
-    @Column(name="category")
-    private String category;
+//    @Column(name="category")
+//    private String category;
+//    
+   
+    @Column(name="catId")
+    private int catId;
+    
 
 	
 	
@@ -37,11 +58,11 @@ public class Product implements java.io.Serializable {
 		
 	}
 	
-	public Product(String name, String description, double price, String category) {
+	public Product(String name, String description, double price, int category) {
 		this.name = name;
 		this.description = description;
 		this.price = price;
-		this.category = category;	
+		this.catId = category;	
 	}
 
 	public String getName() {
@@ -68,11 +89,19 @@ public class Product implements java.io.Serializable {
 		this.price = price;
 	}
 
-	public String getCategory() {
-		return category;
+	public int getCategory() {
+		return catId;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCategory(int category) {
+		this.catId = category;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

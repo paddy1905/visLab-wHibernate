@@ -17,27 +17,42 @@ public class ProductManager {
 	
 	
 	
-	public void getProductsBySearch(String description, 
-			double preisMin, double preisMax, String category ) {
+	
+	
+	public ArrayList<Product> getProductsBySearch(String description, 
+			double preisMin, double preisMax, int category ) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
 		Criteria crit = session.createCriteria(Product.class);
-//		crit.add(Restrictions.between("price", preisMin, preisMax));
-//		crit.add(Restrictions.eq("category", category));
-//		crit.add(Restrictions.like("description", "%"+description+"%"));
-		List lol = crit.list();
-		
-		Iterator iter = lol.iterator();
-		if(!iter.hasNext()){
-			System.out.println("NICHTS");
-		}
-		while(iter.hasNext()){
-			Product product = (Product) iter.next();
-			System.out.println(product.getCategory());
+		if(category != 0) {
+			crit.add(Restrictions.eq("catId", category));
 		}
 		
-
+		if(!description.isEmpty()) {
+			crit.add(Restrictions.like("description", "%"+description+"%"));
+		}
+		
+		if(!(preisMax == 0.0 && preisMin == 0.0)) {
+			crit.add(Restrictions.between("price", preisMin, preisMax));	
+		} else if(preisMax == 0.0 && preisMin > 0) {
+			crit.add(Restrictions.gt("price", preisMin));
+		} else if(preisMax > 0 && preisMin == 0.0) {
+			crit.add(Restrictions.lt("price", preisMax));
+		}
+		List result = crit.list();
+		
+		session.getTransaction().commit();
+			
+		return (ArrayList<Product>) result;
 	}
-
+	
+//	public void createNewProduct() {
+//		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//		session.beginTransaction();
+//		
+//		//Product product = new Product("LOL", "lol", 15.0, "lol");
+//		session.save(product);
+//		session.getTransaction().commit();
+//	}
 }

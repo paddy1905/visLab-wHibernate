@@ -1,9 +1,11 @@
 package vislabExample.controller.action;
 
 import java.util.ArrayList;
+import java.util.Locale.Category;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;
 import vislabExample.model.db.Product;
 
@@ -18,14 +20,19 @@ public class SearchAction extends ActionSupport{
 	private String description;
 	private double preisMin;
 	private double preisMax;
-	private String category;
+	private int category;
+	private ArrayList<vislabExample.model.db.Category> resultCat;
 	
 	
-	private ArrayList<vislabExample.model.db.Product> result;
+	private ArrayList<Product> result;
 	
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
-		productManager.getProductsBySearch(description, preisMin, preisMax, category);
+		//Hier fragen wegen Best Practice (Muss doch irgendwie übernommen werden vom Vorgänger oder nicht)
+		CategoryManager categoryManager = new CategoryManager();
+		result = productManager.getProductsBySearch(description, preisMin, preisMax, category);
+		setResultCat(categoryManager.getAllAvailableCategories());
+		
 		return "success";
 	}
 	
@@ -61,14 +68,23 @@ public class SearchAction extends ActionSupport{
 		this.preisMax = preisMax;
 	}
 
-	public String getCategory() {
+	public int getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(int category) {
 		this.category = category;
 	}
-	
 
-	
+	public ArrayList<vislabExample.model.db.Category> getResultCat() {
+		return resultCat;
+	}
+
+	public void setResultCat(ArrayList<vislabExample.model.db.Category> resultCat) {
+		this.resultCat = resultCat;
+	}
+
+
+
+		
 }

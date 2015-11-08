@@ -17,5 +17,7 @@
           
          <mapping class="vislabExample.model.db.Customer" />
        	 <mapping class="vislabExample.model.db.Product" />
+       	  <mapping class="vislabExample.model.db.Category" />
+   		 
     </session-factory>
 </hibernate-configuration>

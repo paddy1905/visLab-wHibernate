@@ -15,10 +15,10 @@
    				</div>
     			<div>
 	      			<ul class="nav navbar-nav">
-	       				<li class="active"><a href="<s:url action ="openHome"/>">Home</a></li>
+	       				<li><a href="<s:url action ="openHome"/>">Home</a></li>
 	       				<li><a href="<s:url action ="openSearch"/>">Suche</a></li>
 	       				<li><a href="<s:url action ="openProduct"/>">Produkte</a></li>
-	       				<li><a href="<s:url action ="openAdminArea"/>">Admin Bereich</a></li>
+	       				<li class="active"><a href="<s:url action ="openAdminArea"/>">Admin Bereich</a></li>
 	      			</ul>
 	      			<ul class="nav navbar-nav navbar-right">
         				<li><a href="<s:url action = "logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -26,8 +26,9 @@
 	   			 </div>
   			</div>
 		</nav>
-		<s:property value="firstname"/>	
+		<ul class="nav nav-tabs">
+  			<li class="active"><a href="#">Produktverwaltung</a></li>
+  			<li><a href="#">Kategorieverwaltung</a></li>
+		</ul>
 	</body>
 </html>
-
-

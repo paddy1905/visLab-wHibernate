@@ -18,6 +18,7 @@
 	       				<li><a href="<s:url action ="openHome"/>">Home</a></li>
 	       				<li class="active"><a href="<s:url action ="openSearch"/>">Suche</a></li>
 	       				<li><a href="<s:url action ="openProduct"/>">Produkte</a></li>
+	       				<li><a href="<s:url action ="openAdminArea"/>">Admin Bereich</a></li>
 	      			</ul>
 	      			<ul class="nav navbar-nav navbar-right">
         				<li><a href="<s:url action = "logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -46,13 +47,19 @@
 						</div>
 						
 						<div class ="form-group">
-							<label>Kategorie</label>
-							<s:textfield name="category" placeholder="Schmuck" cssClass = "form-control"/><br>
-						</div>
+							<label for="sel1">Kategorien</label>
+  							<select class="form-control" id="sel1">
+  								<s:iterator value="resultCat">
+  									<option><s:property value="name"/></option>
+  								</s:iterator>
+  							</select>
+  						</div>
+  						
 												
 						<div class = "pull-right">
 							<s:submit method="execute" value="Suchen" cssClass="btn btn-default"/>
 						</div>
+	
 					</s:form>
 	 			</div>
 	 			
@@ -61,8 +68,8 @@
 	 				<table class ="table table-striped">
 	 					<thead>
 	 						<tr>
+	 							<th>Artikelnummer</th>
 	 							<th>Name</th>
-	 							<th>Beschreibung</th>
 	 							<th>Preis</th>
 	 							<th>Kategorie</th>
 	 						</tr>
@@ -70,8 +77,8 @@
 	 					
 	 					<s:iterator value="result">
 				 			<tr>
-				 				<td> <s:property value ="name"/></td>
-				 				<td> <s:property value="description"/> </td>
+				 				<td> <s:property value ="id"/></td>
+				 				<td> <s:property value="name"/> </td>
 				 				<td> <s:property value="price"/> </td>
 				 				<td> <s:property value="category"/> </td>
 	 						</tr>    
