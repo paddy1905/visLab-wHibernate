@@ -12,35 +12,41 @@
 <body>
 	<div class = "row">
 		<div class ="col-md-3 col-md-offset-4">
-			<h1>Login</h1>
-			<s:form action="User_login" focusElement="username" theme = "simple"> 
-				
-				<div class = "form-group">
-					<label>Benutzername</label>
-					<s:textfield name="username" cssClass ="form-control"/>
-				</div>
-			
-				<div class = "form-group">
-					<label>Passwort</label>
-					<s:password name="password" cssClass = "form-control" /><br>
-				</div>
-				
-				<div class = "pull-right">
-					<s:submit method="execute" value="login" align="center" cssClass="btn btn-success"/>
-				</div>
-				
-				<div>
-					<p><a href="<s:url action="register"/>">Noch nicht registriert?</a> </p>
- 				</div>
-			</s:form>
-			
-			<div style="padding-top: 5%;">
-				<s:if test="hasActionErrors()">
-					<div class="alert alert-danger" role="alert">
-	  					<span class="sr-only">Error:</span>
-	  						<s:actionerror cssStyle="color: #DE3A75; list-style: none;"/>
-	  				</div>
-  				</s:if>
+			<div class="panel panel-default">
+	  					<div class="panel-heading">
+	  						<h2>Login</h2>
+	  					</div>
+	  					<div class="panel-body">
+							<s:form action="User_login" focusElement="username" theme = "simple"> 
+									
+								<div class = "form-group">
+									<label>Benutzername</label>
+									<s:textfield name="username" cssClass ="form-control"/>
+								</div>
+								
+								<div class = "form-group">
+									<label>Passwort</label>
+									<s:password name="password" cssClass = "form-control" /><br>
+								</div>
+									
+								<div class = "pull-right">
+									<s:submit method="execute" value="login" align="center" cssClass="btn btn-success"/>
+								</div>
+									
+								<div>
+									<p><a href="<s:url action="register"/>">Noch nicht registriert?</a> </p>
+					 			</div>
+							</s:form>
+								
+							<div style="padding-top: 5%;">
+								<s:if test="hasActionErrors()">
+									<div class="alert alert-danger" role="alert">
+						  				<span class="sr-only">Error:</span>
+						  					<s:actionerror cssStyle="color: #DE3A75; list-style: none;"/>
+						  			</div>
+					  			</s:if>
+  							</div>
+  						</div>
   			</div>
 		</div>
 	</div>	 

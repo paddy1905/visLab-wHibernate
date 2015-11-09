@@ -30,40 +30,45 @@
  		<div style="padding-left: 2%; padding-right: 2%; padding-top: 0.5%;">
 	 		<div class = "row">
 	 			<div class ="col-md-5">
-	 				<s:form action="Suchen" theme ="simple">		
-						<div class ="form-group">
-							<label>Beschreibung</label>
-							<s:textfield name="description"  placeholder="Shirt.." cssClass = "form-control"/>
-						</div>
-						
-						<div class ="form-group">
-							<label>Preis minimum</label>
-							<s:textfield name="preisMin" placeholder="15" cssClass = "form-control"/><br>
-						</div>
-												
-						<div class ="form-group">
-							<label>Preis maximum</label>
-							<s:textfield name="preisMax" placeholder="30" cssClass = "form-control"/><br>
-						</div>
-						
-						<div class ="form-group">
-							<label for="sel1">Kategorien</label>
-  							<select class="form-control" id="sel1">
-  								<s:iterator value="resultCat">
-  									<option><s:property value="name"/></option>
-  								</s:iterator>
-  							</select>
-  						</div>
-  						
-												
-						<div class = "pull-right">
-							<s:submit method="execute" value="Suchen" cssClass="btn btn-default"/>
-						</div>
-	
-					</s:form>
+		 			<div class="panel panel-default">
+	  					<div class="panel-heading">Suche..</div>
+	  						<div class="panel-body">
+				 				<s:form action="Suchen" theme ="simple">		
+									<div class ="form-group">
+										<label>Beschreibung</label>
+										<s:textfield name="description"  placeholder="Shirt.." cssClass = "form-control"/>
+									</div>
+									
+									<div class ="form-group">
+										<label>Preis minimum</label>
+										<s:textfield name="preisMin" placeholder="15" cssClass = "form-control"/><br>
+									</div>
+															
+									<div class ="form-group">
+										<label>Preis maximum</label>
+										<s:textfield name="preisMax" placeholder="30" cssClass = "form-control"/><br>
+									</div>
+									
+									<div class ="form-group">
+										<label for="sel1">Kategorien</label>
+			  							<select class="form-control" id="sel1">
+			  								<s:iterator value="resultCat">
+			  									<option><s:property value="name"/></option>
+			  								</s:iterator>
+			  							</select>
+			  						</div>
+			  						
+															
+									<div class = "pull-right">
+										<s:submit method="execute" value="Suchen" cssClass="btn btn-default"/>
+									</div>
+								</s:form>
+		 					</div>
+	 				</div>
 	 			</div>
 	 			
 	 			<div class ="col-md-7">
+	 			
 	 				<h3>Suchergebnisse:</h3>
 	 				<table class ="table table-striped">
 	 					<thead>

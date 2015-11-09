@@ -19,6 +19,7 @@ public class ProductManager {
 	
 	
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Product> getProductsBySearch(String description, 
 			double preisMin, double preisMax, int category ) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -47,12 +48,50 @@ public class ProductManager {
 		return (ArrayList<Product>) result;
 	}
 	
-//	public void createNewProduct() {
-//		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-//		session.beginTransaction();
-//		
-//		//Product product = new Product("LOL", "lol", 15.0, "lol");
-//		session.save(product);
-//		session.getTransaction().commit();
-//	}
+	@SuppressWarnings("unchecked")
+	public ArrayList<Product> getAllProducts() {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		Criteria crit = session.createCriteria(Product.class);
+		ArrayList<Product> result = (ArrayList<Product>) crit.list();
+		
+		session.getTransaction().commit();
+		return result;
+		
+	}
+	
+	public Product getProductForPrimaryKey(int id) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		Product product = (Product) session.get(Product.class, id);
+		
+		session.getTransaction().commit();
+		
+		return product;
+	}
+	
+	public boolean deleteProduct(Product product) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		session.delete(product);
+		session.getTransaction().commit();
+		
+		return true;
+	}
+	
+	
+	
+	public boolean createNewProduct(Product product) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		
+		session.save(product);
+		session.getTransaction().commit();
+		return true;
+	}
 }
+

@@ -35,7 +35,6 @@ public class Product implements java.io.Serializable {
 	
 	  
     @Column(name="name")
-
  	private String name;
 
 	@Column(name="description")
@@ -58,11 +57,12 @@ public class Product implements java.io.Serializable {
 		
 	}
 	
-	public Product(String name, String description, double price, int category) {
+	public Product(int id, String name, String description, double price, int catId) {
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.price = price;
-		this.catId = category;	
+		this.catId = catId;	
 	}
 
 	public String getName() {

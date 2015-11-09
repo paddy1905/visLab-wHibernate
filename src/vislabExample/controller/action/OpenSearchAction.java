@@ -12,24 +12,20 @@ public class OpenSearchAction extends ActionSupport {
 	/**
 	 * 
 	 */
-	private ArrayList<Category> resultCat;
 	private static final long serialVersionUID = 1L;
 	
-	
+	private ArrayList<Category> resultCat;
 	
 	public String execute() throws Exception {
 		CategoryManager categoryManager = new CategoryManager();
-		setResultCat(categoryManager.getAllAvailableCategories());
+		
+		resultCat = categoryManager.getAllAvailableCategories();
 		return "success";
 	}
-
-
 
 	public ArrayList<Category> getResultCat() {
 		return resultCat;
 	}
-
-
 
 	public void setResultCat(ArrayList<Category> resultCat) {
 		this.resultCat = resultCat;

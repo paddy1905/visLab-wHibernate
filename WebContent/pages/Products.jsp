@@ -26,5 +26,6 @@
 	   			 </div>
   			</div>
 		</nav>
+		<s:property value ="name"/>
 	</body>
 </html>

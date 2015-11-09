@@ -40,9 +40,15 @@
         	<result name ="success">/pages/Search.jsp</result>
         </action>
         
-        <action name="openAdminArea">
+        <action name="openAdminArea" class ="vislabExample.controller.action.OpenAdminAreaAction">
        		<result>/pages/Adminbereich.jsp</result>
         </action>
+        
+         <action name="openAdminCat">
+       		<result>/pages/AdminbereichKategorie.jsp</result>
+        </action>
+        
+ 
         
         
          <action name="openHome">
@@ -60,6 +66,18 @@
         
         <action name ="Suchen" class = "vislabExample.controller.action.SearchAction">
         	<result name = "success">/pages/Search.jsp</result>
+        </action>
+        
+        <action name ="edit" class = "vislabExample.controller.action.ShowProductWithKey">
+        	<result name = "success">/pages/Adminbereich.jsp</result>
+        </action>
+        
+        <action name="delete" class ="vislabExample.controller.action.DeleteProductAction">
+        	<result name ="success">/pages/Adminbereich.jsp</result>
+        </action>
+        
+         <action name="create" class ="vislabExample.controller.action.CreateProductAction">
+        	<result name ="success">/pages/Adminbereich.jsp</result>
         </action>
         
     </package>
