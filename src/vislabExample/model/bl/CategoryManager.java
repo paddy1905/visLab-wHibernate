@@ -21,4 +21,36 @@ public class CategoryManager {
 		session.getTransaction().commit();
 		return (ArrayList<Category>) result;
 	}	
+	
+	public Category getCategoryWithPrimaryKey(int id) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		Category category = (Category) session.get(Category.class, id);
+		
+		session.getTransaction().commit();
+		return category;
+	}
+	
+	public boolean deleteCategoryWithKey(Category category) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		session.delete(category);
+		
+		session.getTransaction().commit();
+		
+		return true;	
+	}
+	
+	public boolean createNewCategory(Category category) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		session.save(category);
+		
+		session.getTransaction().commit();
+		
+		return true;
+	}
 }

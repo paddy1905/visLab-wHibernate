@@ -35,9 +35,9 @@
 	 		<div class = "row">
 	 			<div class ="col-md-6">		
 					<div class="panel panel-default">
-  						<div class="panel-heading">Kategorie anlegen</div>
+  						<div class="panel-heading"><span class="glyphicon glyphicon-plus"></span>   Neues Kategorie anlegen</div>
   						<div class="panel-body">
-  							<s:form action="create" theme ="simple">		
+  							<s:form action="createCategory" theme ="simple">		
 								<div class ="form-group">
 									<label>Kategorienummer</label>
 									<s:textfield name="catNr"  placeholder="4" cssClass = "form-control"/>
@@ -45,11 +45,11 @@
 								
 								<div class ="form-group">
 									<label>Name</label>
-									<s:textfield name="name" placeholder="Winterjacken" cssClass = "form-control"/><br>
+									<s:textfield name="name" placeholder="Winterjacken" cssClass = "form-control"/>
 								</div>
 														
 								<div class = "pull-right">
-									<s:submit method="execute" value="Anlegen" cssClass="btn btn-default"/>
+									<s:submit method="execute" value="Anlegen" cssClass="btn btn-success"/>
 								</div>
 			
 							</s:form>
@@ -59,27 +59,53 @@
 				
 				<div class ="col-md-6">		
 					<div class="panel panel-default">
-  						<div class="panel-heading">Kategorie löschen</div>
+  						<div class="panel-heading"><span class="glyphicon glyphicon-minus"></span>   Kategorie löschen</div>
   						<div class="panel-body">
-  							<s:form action="delete" theme ="simple">		
+  							<s:form action="deleteCategory" theme ="simple">		
 								<div class ="form-group">
 									<label for="sel1">Kategorien</label>
-  									<select class="form-control" id="sel1">
-  										<s:iterator value="resultCat">
-  											<option><s:property value="name"/></option>
-  										</s:iterator>
-  									</select>
+  									<s:select name="catIdFromSelectDelete" value="catIdFromSelectDelete" cssClass="form-control" 
+			  							 list="catResult" listValue="nr" listKey="nr"/>
   								</div>
   								
 								<div class = "pull-right">
-									<s:submit method="execute" value="Löschen" cssClass="btn btn-default"/>
+									<s:submit method="execute" value="Löschen" cssClass="btn btn-danger"/>
 								</div>
+								
+								<s:if test="hasActionMessages()">
+									<div class="alert alert-info" role="alert">
+						  					<s:actionmessage cssStyle="list-style: none;"/>
+						  			</div>
+					  			</s:if>
+								
 							</s:form>
   						</div>
 					</div>
 				</div>
 				
-				
+				<div class ="col-md-6">		
+					<div class="panel panel-default">
+  						<div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span>   Katgorie bearbeiten</div>
+  						<div class="panel-body">
+  							<s:form action="editCategory" theme ="simple">				  					
+			  					<div class ="form-group">
+									<label for="sel1">Kategorienummer</label>
+			  						<s:select name="catIdFromSelectEdit" value="catIdFromSelectEdit" cssClass="form-control" 
+			  							 list="catResult" listValue="nr" listKey="nr"/>
+			  					</div>
+			  					
+			  					<div class="form-group">
+			  						<label>Name</label>
+			  						<s:textfield name="nameForEdit" placeholder="Winterjacken" cssClass = "form-control"/>
+			  					</div>
+			  					
+			  					<div class = "pull-right">
+									<s:submit method="execute" value="Anzeigen" cssClass="btn btn-default"/>
+								</div>
+							</s:form>
+  						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 </html>

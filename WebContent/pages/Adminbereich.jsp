@@ -35,9 +35,9 @@
 	 		<div class = "row">
 	 			<div class ="col-md-6">		
 					<div class="panel panel-default">
-  						<div class="panel-heading">Produkt anlegen</div>
+  						<div class="panel-heading"><span class="glyphicon glyphicon-plus"></span>   Neues Produkt anlegen</div>
   						<div class="panel-body">
-  							<s:form action="create" theme ="simple">		
+  							<s:form action="createProduct" theme ="simple">		
 								<div class ="form-group">
 									<label>Artikelnummer</label>
 									<s:textfield name="artNr"  placeholder="..." cssClass = "form-control"/>
@@ -45,23 +45,23 @@
 								
 								<div class ="form-group">
 									<label>Name</label>
-									<s:textfield name="name" placeholder="..." cssClass = "form-control"/><br>
+									<s:textfield name="name" placeholder="..." cssClass = "form-control"/>
 								</div>
 									
 								<div class ="form-group">
 									<label>Preis</label>
-									<s:textfield name="price" placeholder="..." cssClass = "form-control"/><br>
+									<s:textfield name="price" placeholder="..." cssClass = "form-control"/>
 								</div>
 														
 								<div class ="form-group">
 									<label>Beschreibung</label>
-									<s:textarea name="description" placeholder="..." cssClass = "form-control"/><br>
+									<s:textarea name="description" placeholder="..." cssClass = "form-control"/>
 								</div>
 								
 								<div class ="form-group">
 									<label for="sel1">Kategorie</label>
 			  						<s:select name="catIdFromSelectCreate" value="catIdFromSelectCreate" cssClass="form-control" 
-			  							id="sel1" list="catResult" listValue="nr" listKey="nr"/>
+			  							 list="catResult" listValue="nr" listKey="nr"/>
 			  					</div>
 								
 								<div class = "pull-right">
@@ -74,13 +74,13 @@
 				
 				<div class ="col-md-6">		
 					<div class="panel panel-default">
-  						<div class="panel-heading">Produkt löschen</div>
+  						<div class="panel-heading"><span class="glyphicon glyphicon-minus"></span>   Produkt löschen</div>
   						<div class="panel-body">
-  							<s:form action="delete" theme ="simple">		
+  							<s:form action="deleteProduct" theme ="simple">		
 								<div class ="form-group">
 									<label for="sel1">Artikelnummer</label>
 			  						<s:select name="idFromSelectDelete" value="idFromSelectDelete" cssClass="form-control" 
-			  							id="sel1" list="result" listValue="id" listKey="id"/>
+			  							 list="result" listValue="id" listKey="id"/>
 			  					</div>
 								<div class = "pull-right">
 									<s:submit method="execute" value="Löschen" cssClass="btn btn-danger"/>
@@ -91,13 +91,13 @@
 				</div>
 				<div class ="col-md-6">		
 					<div class="panel panel-default">
-  						<div class="panel-heading">Produkt bearbeiten</div>
+  						<div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span>   Produkt bearbeiten</div>
   						<div class="panel-body">
-  							<s:form action="edit" theme ="simple">				  					
+  							<s:form action="editProduct" theme ="simple">				  					
 			  					<div class ="form-group">
 									<label for="sel1">Artikelnummer</label>
 			  						<s:select name="idFromSelectEdit" value="idFromSelectEdit" cssClass="form-control" 
-			  							id="sel1" list="result" listValue="id" listKey="id"/>
+			  							 list="result" listValue="id" listKey="id"/>
 			  					</div>
 			  					
 			  					<div class = "pull-right">
@@ -106,20 +106,20 @@
 			  				
 			  					<div class ="form-group">
 									<label>Artikelnummer</label>
-									<s:textfield name="nrForEdit"  cssClass = "form-control"/><br>
+									<s:textfield name="nrForEdit"  cssClass = "form-control"/>
 								</div>
 								
 			  					<div class ="form-group">
 									<label>Name</label>
-									<s:textfield name="nameForEdit"  cssClass = "form-control"/><br>
+									<s:textfield name="nameForEdit"  cssClass = "form-control"/>
 								</div>
 								<div class ="form-group">
 									<label>Preis</label>
-									<s:textfield name="priceForEdit" cssClass = "form-control"/><br>
+									<s:textfield name="priceForEdit" cssClass = "form-control"/>
 								</div>
 								<div class ="form-group">
 									<label>Beschreibung</label>
-									<s:textarea name="descriptionForEdit" cssClass = "form-control"/><br>
+									<s:textarea name="descriptionForEdit" cssClass = "form-control"/>
 								</div>
 							</s:form>
   						</div>

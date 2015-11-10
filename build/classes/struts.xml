@@ -44,8 +44,8 @@
        		<result>/pages/Adminbereich.jsp</result>
         </action>
         
-         <action name="openAdminCat">
-       		<result>/pages/AdminbereichKategorie.jsp</result>
+         <action name="openAdminCat" class ="vislabExample.controller.action.OpenAdminAreaCategoryAction">
+       		<result name ="success">/pages/AdminbereichKategorie.jsp</result>
         </action>
         
  
@@ -68,19 +68,29 @@
         	<result name = "success">/pages/Search.jsp</result>
         </action>
         
-        <action name ="edit" class = "vislabExample.controller.action.ShowProductWithKey">
+        <action name ="editProduct" class = "vislabExample.controller.action.ShowProductWithKey">
         	<result name = "success">/pages/Adminbereich.jsp</result>
         </action>
         
-        <action name="delete" class ="vislabExample.controller.action.DeleteProductAction">
+        <action name="deleteProduct" class ="vislabExample.controller.action.DeleteProductAction">
         	<result name ="success">/pages/Adminbereich.jsp</result>
         </action>
         
-         <action name="create" class ="vislabExample.controller.action.CreateProductAction">
+         <action name="createProduct" class ="vislabExample.controller.action.CreateProductAction">
         	<result name ="success">/pages/Adminbereich.jsp</result>
         </action>
         
-    </package>
+        <action name="deleteCategory" class ="vislabExample.controller.action.DeleteCategoryAction">
+        	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        </action>
+        
+         <action name="createCategory" class ="vislabExample.controller.action.CreateCategoryAction">
+        	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        </action>
+        
+         <action name="editCategory" class ="vislabExample.controller.action.EditCategoryAction">
+        	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        </action>
     
-
+    </package>
 </struts>

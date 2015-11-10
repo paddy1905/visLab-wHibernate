@@ -41,12 +41,12 @@
 									
 									<div class ="form-group">
 										<label>Preis minimum</label>
-										<s:textfield name="preisMin" placeholder="15" cssClass = "form-control"/><br>
+										<s:textfield name="preisMin" placeholder="15" cssClass = "form-control"/>
 									</div>
 															
 									<div class ="form-group">
 										<label>Preis maximum</label>
-										<s:textfield name="preisMax" placeholder="30" cssClass = "form-control"/><br>
+										<s:textfield name="preisMax" placeholder="30" cssClass = "form-control"/>
 									</div>
 									
 									<div class ="form-group">
