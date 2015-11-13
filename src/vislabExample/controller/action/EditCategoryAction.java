@@ -25,10 +25,14 @@ public class EditCategoryAction extends ActionSupport {
 	
 	public String execute() throws Exception {
 		CategoryManager categoryManager = new CategoryManager();
+		
 		Category category = categoryManager.getCategoryWithPrimaryKey(catIdFromSelectEdit);
 		catResult = categoryManager.getAllAvailableCategories();
 		
 		setNameForEdit(category.getName());
+		
+		addActionMessage("Erfolgreich bearbeitet");
+		
 		return "success";
 	}
 

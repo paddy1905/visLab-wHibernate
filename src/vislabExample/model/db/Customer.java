@@ -32,8 +32,7 @@ public class Customer  implements java.io.Serializable {
     @Column(name="password")
     private String password;
 
-    
-    public Customer() {
+	public Customer() {
     }
 
 	
@@ -81,10 +80,6 @@ public class Customer  implements java.io.Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
-
 }
 
 

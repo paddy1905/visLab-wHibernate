@@ -32,6 +32,9 @@ public class DeleteProductAction extends ActionSupport{
 		
 		catResult = categoryManager.getAllAvailableCategories();
 		setResult(productManager.getAllProducts());
+		
+		addActionMessage("Produkt gelöscht");
+		
 		return "success";
 	}
 

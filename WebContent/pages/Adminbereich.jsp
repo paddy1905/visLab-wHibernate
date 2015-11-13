@@ -33,6 +33,12 @@
 		
 		<div style="padding-left: 2%; padding-right: 2%; padding-top: 0.5%;">
 	 		<div class = "row">
+	 			<s:if test="hasActionMessages()">
+					<div class="alert alert-info" role="alert">
+						<!-- <button type='button' class='close' data-dismiss='alert'>×</button> -->
+						<s:actionmessage cssStyle="list-style: none;"/>
+					</div>
+				</s:if>
 	 			<div class ="col-md-6">		
 					<div class="panel panel-default">
   						<div class="panel-heading"><span class="glyphicon glyphicon-plus"></span>   Neues Produkt anlegen</div>
@@ -61,7 +67,7 @@
 								<div class ="form-group">
 									<label for="sel1">Kategorie</label>
 			  						<s:select name="catIdFromSelectCreate" value="catIdFromSelectCreate" cssClass="form-control" 
-			  							 list="catResult" listValue="nr" listKey="nr"/>
+			  							 list="catResult" listValue="catId" listKey="catId"/>
 			  					</div>
 								
 								<div class = "pull-right">
@@ -99,16 +105,7 @@
 			  						<s:select name="idFromSelectEdit" value="idFromSelectEdit" cssClass="form-control" 
 			  							 list="result" listValue="id" listKey="id"/>
 			  					</div>
-			  					
-			  					<div class = "pull-right">
-									<s:submit method="execute" value="Anzeigen" cssClass="btn btn-default"/>
-								</div>
-			  				
-			  					<div class ="form-group">
-									<label>Artikelnummer</label>
-									<s:textfield name="nrForEdit"  cssClass = "form-control"/>
-								</div>
-								
+			  						  						
 			  					<div class ="form-group">
 									<label>Name</label>
 									<s:textfield name="nameForEdit"  cssClass = "form-control"/>
@@ -119,7 +116,25 @@
 								</div>
 								<div class ="form-group">
 									<label>Beschreibung</label>
-									<s:textarea name="descriptionForEdit" cssClass = "form-control"/>
+									<s:textarea name="descriptionForEdit" cssClass = "form-control" />
+								</div>
+								
+								<div class ="form-group">
+									<label>Kategorie</label>
+									<s:textfield name="catForEditShow" cssClass = "form-control" disabled ="true"/>
+								</div>
+								
+								<div class ="form-group">
+									<label for="sel1">Neue Kategorie wählen</label>
+			  						<s:select name="catIdFromSelectEdit" value="catIdFromSelectEdit" cssClass="form-control" 
+			  							 list="catResult" listValue="catId" listKey="catId"/>
+			  					</div>
+			  					
+			  					<div class = "pull-right">
+			  						<div class ="btn-group" role ="group">
+			  							<s:submit method="execute" value="Anzeigen" cssClass="btn btn-default" name="buttonName"/>
+			  							<s:submit method="execute" value="Bearbeiten" cssClass="btn btn-default" name ="buttonName"/>
+			  						</div>	
 								</div>
 							</s:form>
   						</div>

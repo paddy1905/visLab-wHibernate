@@ -33,6 +33,12 @@
 	</body>
 	<div style="padding-left: 2%; padding-right: 2%; padding-top: 0.5%;">
 	 		<div class = "row">
+	 		
+	 			<s:if test="hasActionMessages()">
+					<div class="alert alert-info" role="alert">
+						<s:actionmessage cssStyle="list-style: none;"/>
+					</div>
+				</s:if>
 	 			<div class ="col-md-6">		
 					<div class="panel panel-default">
   						<div class="panel-heading"><span class="glyphicon glyphicon-plus"></span>   Neues Kategorie anlegen</div>
@@ -51,6 +57,8 @@
 								<div class = "pull-right">
 									<s:submit method="execute" value="Anlegen" cssClass="btn btn-success"/>
 								</div>
+								
+								
 			
 							</s:form>
   						</div>
@@ -65,19 +73,12 @@
 								<div class ="form-group">
 									<label for="sel1">Kategorien</label>
   									<s:select name="catIdFromSelectDelete" value="catIdFromSelectDelete" cssClass="form-control" 
-			  							 list="catResult" listValue="nr" listKey="nr"/>
+			  							 list="catResult" listValue="catId" listKey="catId"/>
   								</div>
   								
 								<div class = "pull-right">
 									<s:submit method="execute" value="Löschen" cssClass="btn btn-danger"/>
 								</div>
-								
-								<s:if test="hasActionMessages()">
-									<div class="alert alert-info" role="alert">
-						  					<s:actionmessage cssStyle="list-style: none;"/>
-						  			</div>
-					  			</s:if>
-								
 							</s:form>
   						</div>
 					</div>
@@ -91,7 +92,7 @@
 			  					<div class ="form-group">
 									<label for="sel1">Kategorienummer</label>
 			  						<s:select name="catIdFromSelectEdit" value="catIdFromSelectEdit" cssClass="form-control" 
-			  							 list="catResult" listValue="nr" listKey="nr"/>
+			  							 list="catResult" listValue="catId" listKey="catId"/>
 			  					</div>
 			  					
 			  					<div class="form-group">

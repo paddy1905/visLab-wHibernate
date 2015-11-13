@@ -23,6 +23,8 @@ public class ShowProductWithKey extends ActionSupport {
 	private String descriptionForEdit;
 	private double priceForEdit;
 	private int nrForEdit;
+	private String catForEditShow;
+	private int catIdFromSelectEdit;
 	
 	private Product product;
 	private ArrayList<Product> result;
@@ -37,6 +39,7 @@ public class ShowProductWithKey extends ActionSupport {
 		setDescriptionForEdit(product.getDescription());
 		setPriceForEdit(product.getPrice());
 		setNrForEdit(product.getId());
+		setCatForEditShow(product.getCategory().getName());
 	
 		result = productManager.getAllProducts();
 		catResult = categoryManager.getAllAvailableCategories();
@@ -106,5 +109,31 @@ public class ShowProductWithKey extends ActionSupport {
 	public void setCatResult(ArrayList<Category> catResult) {
 		this.catResult = catResult;
 	}
+
+	public String getCatForEditShow() {
+		return catForEditShow;
+	}
+
+	public void setCatForEditShow(String catForEditShow) {
+		this.catForEditShow = catForEditShow;
+	}
+
+	public int getCatIdFromSelectEdit() {
+		return catIdFromSelectEdit;
+	}
+
+	public void setCatIdFromSelectEdit(int catIdFromSelectEdit) {
+		this.catIdFromSelectEdit = catIdFromSelectEdit;
+	}
+
+
+
+//	public int getCategoryForEdit() {
+//		return categoryForEdit;
+//	}
+//
+//	public void setCategoryForEdit(int categoryForEdit) {
+//		this.categoryForEdit = categoryForEdit;
+//	}
 
 }

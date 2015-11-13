@@ -30,9 +30,21 @@ public class CreateCategoryAction extends ActionSupport{
 	public String execute() throws Exception {
 		CategoryManager categoryManager = new CategoryManager();
 		Category category = new Category(catNr, name);
-		boolean created = categoryManager.createNewCategory(category);
-		catResult = categoryManager.getAllAvailableCategories();
-		return "success";
+		
+		Category category2 = categoryManager.getCategoryWithPrimaryKey(catNr);
+		
+		if(category2 != null) {
+			addActionMessage("Kategorie id bereits vergeben");
+			catResult = categoryManager.getAllAvailableCategories();
+			return "success";
+		} else {
+			boolean created = categoryManager.createNewCategory(category);
+			catResult = categoryManager.getAllAvailableCategories();
+			
+			addActionMessage("Erfolgreich angelegt");
+			
+			return "success";	
+		}
 	}
 
 	public ArrayList<Category> getCatResult() {

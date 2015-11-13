@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.xml.internal.bind.v2.TODO;
 
 import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;
@@ -32,13 +33,26 @@ public class CreateProductAction extends ActionSupport{
 		ProductManager productManager = new ProductManager();
 		CategoryManager categoryManager = new CategoryManager();
 		
-		Product product = new Product(artNr,name,description,price, catIdFromSelectCreate);
+		Category category = categoryManager.getCategoryWithPrimaryKey(catIdFromSelectCreate);
 		
-		productManager.createNewProduct(product);
+		Product product = new Product(artNr,name,description,price, category);
+		Product product2 = productManager.getProductForPrimaryKey(artNr);
 		
-		result = productManager.getAllProducts();
-		catResult = categoryManager.getAllAvailableCategories();
-		return "success";
+		//TODO call getAllCats only once
+		
+		if(product2 != null) {
+			addActionMessage("Produktnummer bereits vergeben");
+			result = productManager.getAllProducts();
+			catResult = categoryManager.getAllAvailableCategories();
+			return "input";
+		} else {
+			productManager.createNewProduct(product);
+			result = productManager.getAllProducts();
+			catResult = categoryManager.getAllAvailableCategories();
+			
+			addActionMessage("Erfolgreich angelegt: " + artNr);
+			return "success";
+		}
 	}
 
 	

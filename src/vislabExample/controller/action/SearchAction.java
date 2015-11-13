@@ -1,12 +1,12 @@
 package vislabExample.controller.action;
 
 import java.util.ArrayList;
-import java.util.Locale.Category;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;
+import vislabExample.model.db.Category;
 import vislabExample.model.db.Product;
 
 
@@ -21,7 +21,7 @@ public class SearchAction extends ActionSupport{
 	private double preisMin;
 	private double preisMax;
 	private int category;
-	private ArrayList<vislabExample.model.db.Category> resultCat;
+	private ArrayList<Category> resultCat;
 	
 	
 	private ArrayList<Product> result;
@@ -76,11 +76,11 @@ public class SearchAction extends ActionSupport{
 		this.category = category;
 	}
 
-	public ArrayList<vislabExample.model.db.Category> getResultCat() {
+	public ArrayList<Category> getResultCat() {
 		return resultCat;
 	}
 
-	public void setResultCat(ArrayList<vislabExample.model.db.Category> resultCat) {
+	public void setResultCat(ArrayList<Category> resultCat) {
 		this.resultCat = resultCat;
 	}
 

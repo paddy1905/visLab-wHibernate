@@ -15,9 +15,17 @@ public class Category implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="nr")
-	private int nr;
+	@Column(name="catId")
+	private int catId;
 	
+	public int getCatId() {
+		return catId;
+	}
+
+	public void setCatId(int catId) {
+		this.catId = catId;
+	}
+
 	@Column(name="name")
 	private String name;
 
@@ -25,24 +33,15 @@ public class Category implements java.io.Serializable {
 		
 	}
 	
-	public Category(int nr, String name) {
-		this.nr = nr;
+	public Category(int catId, String name) {
+		this.catId = catId;
 		this.name = name;
 	}
 	
 	
 	
 
-	public int getNr() {
-		return nr;
-	}
-
-
-
-
-	public void setNr(int nr) {
-		this.nr = nr;
-	}
+	
 
 
 

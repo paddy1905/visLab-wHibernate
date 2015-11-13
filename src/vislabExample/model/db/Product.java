@@ -27,8 +27,6 @@ public class Product implements java.io.Serializable {
 	 */
 	
 	
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "wtStatSEQ")
-//	@SequenceGenerator(name = "wtStatSEQ", sequenceName = "seq")
 	@Id
 	@Column(name = "id")
 	private int id;
@@ -43,12 +41,9 @@ public class Product implements java.io.Serializable {
     @Column(name="price")
 	private double price;
 
-//    @Column(name="category")
-//    private String category;
-//    
-   
-    @Column(name="catId")
-    private int catId;
+    @ManyToOne
+    @JoinColumn(name="catId")
+    private Category category;
     
 
 	
@@ -57,12 +52,12 @@ public class Product implements java.io.Serializable {
 		
 	}
 	
-	public Product(int id, String name, String description, double price, int catId) {
+	public Product(int id, String name, String description, double price, Category category) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.price = price;
-		this.catId = catId;	
+		this.category = category;	
 	}
 
 	public String getName() {
@@ -89,12 +84,14 @@ public class Product implements java.io.Serializable {
 		this.price = price;
 	}
 
-	public int getCategory() {
-		return catId;
+	
+
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategory(int category) {
-		this.catId = category;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public int getId() {
