@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import vislabExample.model.bl.CategoryManager;
-import vislabExample.model.bl.ProductManager;
+
 import vislabExample.model.db.Category;
 import vislabExample.model.db.Product;
 
@@ -26,7 +25,6 @@ public class BaseProductEditAction extends ActionSupport {
 	protected String catForEditShow;
 	protected int catIdFromSelectEdit;
 	
-	protected Product product;
 	protected ArrayList<Product> result;
 	protected ArrayList<Category> catResult;
 	
@@ -37,14 +35,6 @@ public class BaseProductEditAction extends ActionSupport {
 
 	public void setIdFromSelectEdit(int idFromSelectEdit) {
 		this.idFromSelectEdit = idFromSelectEdit;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
 	}
 
 	public ArrayList<Product> getResult() {

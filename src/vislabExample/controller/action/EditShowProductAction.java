@@ -5,6 +5,7 @@ package vislabExample.controller.action;
 
 import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;
+import vislabExample.model.db.Product;
 
 
 public class EditShowProductAction extends BaseProductEditAction {
@@ -17,7 +18,7 @@ public class EditShowProductAction extends BaseProductEditAction {
 		ProductManager productManager = new ProductManager();
 		CategoryManager categoryManager = new CategoryManager();
 		
-		product = productManager.getProductForPrimaryKey(idFromSelectEdit);
+		Product product = productManager.getProductForPrimaryKey(idFromSelectEdit);
 		setNameForEdit(product.getName());
 		setDescriptionForEdit(product.getDescription());
 		setPriceForEdit(product.getPrice());

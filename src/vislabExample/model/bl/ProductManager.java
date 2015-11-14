@@ -88,8 +88,16 @@ public class ProductManager {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
-		
 		session.save(product);
+		session.getTransaction().commit();
+		return true;
+	}
+	
+	public boolean editProduct(Product product) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		session.update(product);
 		session.getTransaction().commit();
 		return true;
 	}
