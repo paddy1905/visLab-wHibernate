@@ -93,7 +93,11 @@
         	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
         </action>
         
-         <action name="editCategory" class ="vislabExample.controller.action.EditCategoryAction">
+         <action name="showCategory" method="execute" class ="vislabExample.controller.action.EditShowCategoryAction">
+        	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        </action>
+        
+        <action name="editCategory" method="execute" class ="vislabExample.controller.action.EditCategoryAction">
         	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
         </action>
     

@@ -88,7 +88,7 @@
 					<div class="panel panel-default">
   						<div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span>   Katgorie bearbeiten</div>
   						<div class="panel-body">
-  							<s:form action="editCategory" theme ="simple">				  					
+  							<s:form theme ="simple">				  					
 			  					<div class ="form-group">
 									<label for="sel1">Kategorienummer</label>
 			  						<s:select name="catIdFromSelectEdit" value="catIdFromSelectEdit" cssClass="form-control" 
@@ -101,7 +101,10 @@
 			  					</div>
 			  					
 			  					<div class = "pull-right">
-									<s:submit method="execute" value="Anzeigen" cssClass="btn btn-default"/>
+			  						<div class ="btn-group" role ="group">
+										<s:submit action="showCategory" value="Anzeigen" cssClass="btn btn-default"/>
+			  							<s:submit action="editCategory" value="Bearbeiten" cssClass="btn btn-default"/>
+			  						</div>
 								</div>
 							</s:form>
   						</div>

@@ -53,4 +53,15 @@ public class CategoryManager {
 		
 		return true;
 	}
+	
+	public boolean editCategory(Category category) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		session.update(category);
+		
+		session.getTransaction().commit();
+		
+		return true;
+	}
 }
