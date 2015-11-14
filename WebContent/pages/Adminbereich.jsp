@@ -99,7 +99,7 @@
 					<div class="panel panel-default">
   						<div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span>   Produkt bearbeiten</div>
   						<div class="panel-body">
-  							<s:form action="editProduct" theme ="simple">				  					
+  							<s:form theme ="simple">				  					
 			  					<div class ="form-group">
 									<label for="sel1">Artikelnummer</label>
 			  						<s:select name="idFromSelectEdit" value="idFromSelectEdit" cssClass="form-control" 
@@ -132,8 +132,8 @@
 			  					
 			  					<div class = "pull-right">
 			  						<div class ="btn-group" role ="group">
-			  							<s:submit method="execute" value="Anzeigen" cssClass="btn btn-default" name="buttonName"/>
-			  							<s:submit method="execute" value="Bearbeiten" cssClass="btn btn-default" name ="buttonName"/>
+			  							<s:submit action="showProduct" value="Anzeigen" cssClass="btn btn-default"/>
+			  							<s:submit action="editProduct" value="Bearbeiten" cssClass="btn btn-default"/>
 			  						</div>	
 								</div>
 							</s:form>

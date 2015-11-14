@@ -11,40 +11,25 @@ import vislabExample.model.bl.ProductManager;
 import vislabExample.model.db.Category;
 import vislabExample.model.db.Product;
 
-public class ShowProductWithKey extends ActionSupport {
+public class BaseProductEditAction extends ActionSupport {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private int idFromSelectEdit;
-	private String nameForEdit;
-	private String descriptionForEdit;
-	private double priceForEdit;
-	private int nrForEdit;
-	private String catForEditShow;
-	private int catIdFromSelectEdit;
+	protected int idFromSelectEdit;
+	protected String nameForEdit;
+	protected String descriptionForEdit;
+	protected double priceForEdit;
+	protected int nrForEdit;
+	protected String catForEditShow;
+	protected int catIdFromSelectEdit;
 	
-	private Product product;
-	private ArrayList<Product> result;
-	private ArrayList<Category> catResult;
+	protected Product product;
+	protected ArrayList<Product> result;
+	protected ArrayList<Category> catResult;
 	
-	public String execute() throws Exception {
-		ProductManager productManager = new ProductManager();
-		CategoryManager categoryManager = new CategoryManager();
-		
-		product = productManager.getProductForPrimaryKey(idFromSelectEdit);
-		setNameForEdit(product.getName());
-		setDescriptionForEdit(product.getDescription());
-		setPriceForEdit(product.getPrice());
-		setNrForEdit(product.getId());
-		setCatForEditShow(product.getCategory().getName());
-	
-		result = productManager.getAllProducts();
-		catResult = categoryManager.getAllAvailableCategories();
-		return "success";
-	}
 
 	public int getIdFromSelectEdit() {
 		return idFromSelectEdit;
@@ -125,15 +110,4 @@ public class ShowProductWithKey extends ActionSupport {
 	public void setCatIdFromSelectEdit(int catIdFromSelectEdit) {
 		this.catIdFromSelectEdit = catIdFromSelectEdit;
 	}
-
-
-
-//	public int getCategoryForEdit() {
-//		return categoryForEdit;
-//	}
-//
-//	public void setCategoryForEdit(int categoryForEdit) {
-//		this.categoryForEdit = categoryForEdit;
-//	}
-
 }
