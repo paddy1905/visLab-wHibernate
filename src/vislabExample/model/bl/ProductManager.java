@@ -8,6 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
+import vislabExample.model.db.Category;
 import vislabExample.model.db.Customer;
 import vislabExample.model.db.Product;
 import vislabExample.model.sf.HibernateUtil;
@@ -21,14 +22,14 @@ public class ProductManager {
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Product> getProductsBySearch(String description, 
-			double preisMin, double preisMax, int category ) {
+			double preisMin, double preisMax, Category category ) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
 		Criteria crit = session.createCriteria(Product.class);
-		if(category != 0) {
-			crit.add(Restrictions.eq("catId", category));
-		}
+//		if(category != 0) {
+//			crit.add(Restrictions.eq("catId", category));
+//		}
 		
 		if(!description.isEmpty()) {
 			crit.add(Restrictions.like("description", "%"+description+"%"));
@@ -101,5 +102,21 @@ public class ProductManager {
 		session.getTransaction().commit();
 		return true;
 	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public ArrayList<Product> getRelatedProducts(Category category, int id) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		
+		Criteria crit = session.createCriteria(Product.class);
+		crit.add(Restrictions.eq("category", category));
+		crit.add(Restrictions.ne("id", id));
+		
+		List result = crit.list();
+		
+		session.getTransaction().commit();
+		
+		return (ArrayList<Product>) result;
+	}	
 }
 

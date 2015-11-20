@@ -36,23 +36,16 @@ public class CreateProductAction extends ActionSupport{
 		Category category = categoryManager.getCategoryWithPrimaryKey(catIdFromSelectCreate);
 		
 		Product product = new Product(artNr,name,description,price, category);
-		Product product2 = productManager.getProductForPrimaryKey(artNr);
 		
-		//TODO call getAllCats only once
 		
-		if(product2 != null) {
-			addActionMessage("Produktnummer bereits vergeben");
-			result = productManager.getAllProducts();
-			catResult = categoryManager.getAllAvailableCategories();
-			return "input";
-		} else {
+		
 			productManager.createNewProduct(product);
 			result = productManager.getAllProducts();
 			catResult = categoryManager.getAllAvailableCategories();
 			
 			addActionMessage("Erfolgreich angelegt: " + artNr);
 			return "success";
-		}
+		
 	}
 
 	

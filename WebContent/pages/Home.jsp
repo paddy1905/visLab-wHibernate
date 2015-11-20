@@ -26,6 +26,17 @@
 	   			 </div>
   			</div>
 		</nav>
+		
+		<div class="container">
+			<div class="jumbotron">
+  				<h1>Willkommen</h1> 
+  				<p>Wir bieten eine groﬂe Auswahl von Filmen bladsfdfdsf
+  				sdfdsfdsfdsfdsf</p> 
+			</div>
+		</div>
+		
+		
+		
 		<s:property value="firstname"/>	
 	</body>
 </html>

@@ -20,17 +20,18 @@ public class SearchAction extends ActionSupport{
 	private String description;
 	private double preisMin;
 	private double preisMax;
-	private int category;
+	private int catIdForSearch;
 	private ArrayList<Category> resultCat;
-	
 	
 	private ArrayList<Product> result;
 	
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
-		//Hier fragen wegen Best Practice (Muss doch irgendwie übernommen werden vom Vorgänger oder nicht)
 		CategoryManager categoryManager = new CategoryManager();
-		result = productManager.getProductsBySearch(description, preisMin, preisMax, category);
+		
+		Category categoryForSearch = categoryManager.getCategoryWithPrimaryKey(catIdForSearch);
+		
+		result = productManager.getProductsBySearch(description, preisMin, preisMax, categoryForSearch);
 		setResultCat(categoryManager.getAllAvailableCategories());
 		
 		return "success";
@@ -68,14 +69,6 @@ public class SearchAction extends ActionSupport{
 		this.preisMax = preisMax;
 	}
 
-	public int getCategory() {
-		return category;
-	}
-
-	public void setCategory(int category) {
-		this.category = category;
-	}
-
 	public ArrayList<Category> getResultCat() {
 		return resultCat;
 	}
@@ -84,7 +77,11 @@ public class SearchAction extends ActionSupport{
 		this.resultCat = resultCat;
 	}
 
+	public int getCatIdForSearch() {
+		return catIdForSearch;
+	}
 
-
-		
+	public void setCatIdForSearch(int catIdForSearch) {
+		this.catIdForSearch = catIdForSearch;
+	}		
 }

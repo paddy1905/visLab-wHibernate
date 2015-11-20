@@ -35,7 +35,7 @@ public class Product implements java.io.Serializable {
     @Column(name="name")
  	private String name;
 
-	@Column(name="description")
+	@Column(name="description", length = 1300)
     private String description;
 
     @Column(name="price")

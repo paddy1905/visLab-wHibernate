@@ -50,12 +50,9 @@
 									</div>
 									
 									<div class ="form-group">
-										<label for="sel1">Kategorien</label>
-			  							<select class="form-control" id="sel1">
-			  								<s:iterator value="resultCat">
-			  									<option><s:property value="name"/></option>
-			  								</s:iterator>
-			  							</select>
+										<label>Kategorien</label>
+			  						<s:select name="catIdForSearch" value="catIdForSearch" cssClass="form-control" 
+			  							 list="resultCat" listValue="catId" listKey="catId"/>
 			  						</div>
 			  						
 															
@@ -85,7 +82,15 @@
 				 				<td> <s:property value ="id"/></td>
 				 				<td> <s:property value="name"/> </td>
 				 				<td> <s:property value="price"/> </td>
-				 				<td> <s:property value="category"/> </td>
+				 				<td> <s:property value="category.name"/> </td>
+				 				<!-- Form rein mit hidden textfeld und verweis auf eine variable, dann kann ich in action damit arbeiten -->
+				 				<td> 
+				 					<s:form action="showDetails" theme ="simple">
+				 						<s:hidden name ="detailKey" value="%{id}"/>
+				 						<s:submit value="Details" cssClass="btn btn-default"/>
+				 					</s:form>
+				 				
+				 				
 	 						</tr>    
 						</s:iterator>
 					</table>	

@@ -70,11 +70,11 @@
         </action>
         
         <action name ="editProduct" method="execute" class = "vislabExample.controller.action.EditProductAction">
-        	<result name = "success">/pages/Adminbereich.jsp</result>
+        	<result name ="success">/pages/Adminbereich.jsp</result>
         </action>
         
         <action name ="showProduct" method="execute" class = "vislabExample.controller.action.EditShowProductAction">
-        	<result name = "success">/pages/Adminbereich.jsp</result>
+        	<result name ="success">/pages/Adminbereich.jsp</result>
         </action>
         
         <action name="deleteProduct" class ="vislabExample.controller.action.DeleteProductAction">
@@ -99,6 +99,11 @@
         
         <action name="editCategory" method="execute" class ="vislabExample.controller.action.EditCategoryAction">
         	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        </action>
+        
+        
+        <action name="showDetails" method="execute" class ="vislabExample.controller.action.ShowDetailsAction">
+        	<result name ="success">/pages/Products.jsp</result>
         </action>
     
     </package>
