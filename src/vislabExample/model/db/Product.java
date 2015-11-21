@@ -1,5 +1,11 @@
 package vislabExample.model.db;
 
+
+
+
+
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +18,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name="PRODUCT")
@@ -45,9 +52,21 @@ public class Product implements java.io.Serializable {
     @JoinColumn(name="catId")
     private Category category;
     
+    @Column(name="testDate")
+    @Type(type="date")
+    private Date testDate;
+    
 
 	
 	
+	public Date getTestDate() {
+		return testDate;
+	}
+
+	public void setTestDate(Date testDate) {
+		this.testDate = testDate;
+	}
+
 	public Product() {
 		
 	}

@@ -105,6 +105,10 @@
         <action name="showDetails" method="execute" class ="vislabExample.controller.action.ShowDetailsAction">
         	<result name ="success">/pages/Products.jsp</result>
         </action>
+        
+        <action name="testDate" method="execute" class ="vislabExample.controller.action.TestDateAction">
+        	<result name ="success">/pages/Home.jsp</result>
+        </action>
     
     </package>
 </struts>

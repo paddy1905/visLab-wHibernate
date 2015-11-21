@@ -6,6 +6,7 @@
 	<head>
 		<title ><s:text name="welcome.title"/></title>
 		<link rel="stylesheet" type="text/css" href="common/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="common/bootstrap/datepicker.css">
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -130,6 +131,17 @@
 			  							 list="catResult" listValue="catId" listKey="catId"/>
 			  					</div>
 			  					
+			  					<%-- <div class ="form-group">
+									<label>Erscheinungsdatum</label>
+									<s:textfield name="testDate" cssClass = "form-control" disabled ="true"/>
+								</div>
+ --%>			  					
+ 								<div class="input-group">
+                					<s:textfield type="text" id="example1" cssClass="form-control" name ="testDate"/>
+                					<span class="input-group-addon"><span class ="glyphicon glyphicon-calendar"></span></span> 
+            					</div>
+ 								
+ 
 			  					<div class = "pull-right">
 			  						<div class ="btn-group" role ="group">
 			  							<s:submit action="showProduct" value="Anzeigen" cssClass="btn btn-default"/>
@@ -142,5 +154,21 @@
 				</div>
 			</div>
 		</div>
+		  <script src="common/js/jquery-1.9.1.min.js"></script>
+        <script src="common/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('#example1').datepicker({
+                    format: "dd.mm.yyyy",
+                    
+                   
+                 
+                });
+                
+               
+            });
+        </script>
+		
 	</body>
 </html>
