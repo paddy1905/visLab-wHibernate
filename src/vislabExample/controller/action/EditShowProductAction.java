@@ -21,7 +21,7 @@ public class EditShowProductAction extends BaseProductEditAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String testDate;
+	
 
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
@@ -35,29 +35,22 @@ public class EditShowProductAction extends BaseProductEditAction {
 		setCatForEditShow(product.getCategory().getName());
 		
 		
-		Date dateToFormat = product.getTestDate();
+		Date dateToFormat = product.getReleaseDate();
 		
 		SimpleDateFormat sm = new SimpleDateFormat("dd.MM.yyyy");
 		
 		String newDate = sm.format(dateToFormat);
-		Date lolDate = sm.parse(newDate);
 		
-		setTestDate(newDate);
-	
+		setReleaseDate(newDate);
+		
 		result = productManager.getAllProducts();
 		catResult = categoryManager.getAllAvailableCategories();
 		
-		System.out.println(product.getTestDate());
+		System.out.println(product.getReleaseDate());
 		System.out.println(newDate);
 		
 		return "success";
 	}
 
-	public String getTestDate() {
-		return testDate;
-	}
-
-	public void setTestDate(String testDate) {
-		this.testDate = testDate;
-	}
+	
 }

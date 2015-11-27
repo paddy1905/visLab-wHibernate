@@ -1,9 +1,12 @@
 package vislabExample.controller.action;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import com.sun.xml.internal.bind.v2.TODO;
 
 import vislabExample.model.bl.CategoryManager;
@@ -25,6 +28,7 @@ public class CreateProductAction extends ActionSupport{
 	private String name;
 	private double price;
 	private String description;
+	private String releaseDateForCreate;
 	
 	private ArrayList<Product> result;
 	private ArrayList<Category> catResult;
@@ -33,24 +37,34 @@ public class CreateProductAction extends ActionSupport{
 		ProductManager productManager = new ProductManager();
 		CategoryManager categoryManager = new CategoryManager();
 		
-		Category category = categoryManager.getCategoryWithPrimaryKey(catIdFromSelectCreate);
-		
-		Product product = new Product(artNr,name,description,price, category);
-		
-		
-		
-			productManager.createNewProduct(product);
+		if(productManager.getProductForPrimaryKey(artNr) != null) {
+			addActionMessage("Artikel: " + artNr +" bereits vergeben");
 			result = productManager.getAllProducts();
 			catResult = categoryManager.getAllAvailableCategories();
-			
-			addActionMessage("Erfolgreich angelegt: " + artNr);
 			return "success";
+		}
+		
+		Category category = categoryManager.getCategoryWithPrimaryKey(catIdFromSelectCreate);
+		Product product = new Product(artNr,name,description,price,new Date(), category);
+		
+		
+		DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		try {
+			Date date = formatter.parse(releaseDateForCreate);
+			product.setReleaseDate(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		productManager.createNewProduct(product);
+		result = productManager.getAllProducts();
+		catResult = categoryManager.getAllAvailableCategories();
+			
+		addActionMessage("Erfolgreich angelegt: " + artNr);
+		return "success";
 		
 	}
 
-	
-	
-	
 	public int getArtNr() {
 		return artNr;
 	}
@@ -105,6 +119,14 @@ public class CreateProductAction extends ActionSupport{
 
 	public void setCatResult(ArrayList<Category> catResult) {
 		this.catResult = catResult;
+	}
+
+	public String getReleaseDateForCreate() {
+		return releaseDateForCreate;
+	}
+
+	public void setReleaseDateForCreate(String releaseDateForCreate) {
+		this.releaseDateForCreate = releaseDateForCreate;
 	}
 }
 	

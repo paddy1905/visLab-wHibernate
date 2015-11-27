@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="s" uri="/struts-tags"  %>
-
-<%-- <html >
+ 
+<html>
 	<head>
 		<title ><s:text name="welcome.title"/></title>
 		<link rel="stylesheet" type="text/css" href="common/bootstrap/bootstrap.min.css">
@@ -40,46 +40,8 @@
 		<s:property value="firstname"/>	
 	</body>
 </html>
- --%>
+
  
 
-<html>
-    <head>
-        <title>bootstrap datepicker examples</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <!-- Bootstrap CSS and bootstrap datepicker CSS used for styling the demo pages-->
-        <link rel="stylesheet" href="common/bootstrap/datepicker.css">
-        <link rel="stylesheet" href="common/bootstrap/bootstrap.min.css">
-    </head>
-    <body>
-        <div class="row">
-        <div class ="col-md-3 col-md-offset-4">
-        	<s:form theme ="simple" action="testDate">
-            	<div class="input-group">
-                	<s:textfield type="text" id="example1" cssClass="form-control" name ="datepicker"/>
-                	<span class="input-group-addon"><span class ="glyphicon glyphicon-calendar"></span></span> 
-            	</div>
-            	
-            	<div class = "pull-right">
-									<s:submit method="execute" value="test" align="center" cssClass="btn btn-success"/>
-								</div>
-            	
-           </s:form>
-           </div>
-           
-           
-           <s:property value="date"/>
-        </div>
-        <!-- Load jQuery and bootstrap datepicker scripts -->
-        <script src="common/js/jquery-1.9.1.min.js"></script>
-        <script src="common/js/bootstrap-datepicker.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#example1').datepicker({
-                    format: "dd.mm.yyyy"
-                });  
-            });
-        </script>
-    </body>
-</html> 
+
 

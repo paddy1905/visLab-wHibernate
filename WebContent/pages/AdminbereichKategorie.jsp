@@ -71,9 +71,9 @@
   						<div class="panel-body">
   							<s:form action="deleteCategory" theme ="simple">		
 								<div class ="form-group">
-									<label for="sel1">Kategorien</label>
+									<label for="sel1">Kategorie</label>
   									<s:select name="catIdFromSelectDelete" value="catIdFromSelectDelete" cssClass="form-control" 
-			  							 list="catResult" listValue="catId" listKey="catId"/>
+			  							 list="catResult" listValue="name" listKey="catId"/>
   								</div>
   								
 								<div class = "pull-right">
@@ -90,9 +90,9 @@
   						<div class="panel-body">
   							<s:form theme ="simple">				  					
 			  					<div class ="form-group">
-									<label for="sel1">Kategorienummer</label>
+									<label for="sel1">Kategorie</label>
 			  						<s:select name="catIdFromSelectEdit" value="catIdFromSelectEdit" cssClass="form-control" 
-			  							 list="catResult" listValue="catId" listKey="catId"/>
+			  							 list="catResult" listValue="name" listKey="catId"/>
 			  					</div>
 			  					
 			  					<div class="form-group">

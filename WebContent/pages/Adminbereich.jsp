@@ -44,31 +44,43 @@
 					<div class="panel panel-default">
   						<div class="panel-heading"><span class="glyphicon glyphicon-plus"></span>   Neues Produkt anlegen</div>
   						<div class="panel-body">
-  							<s:form action="createProduct" theme ="simple">		
-								<div class ="form-group">
+  							<s:form action="createProduct" theme ="simple">	
+  							
+  							<div class ="row">	
+								<div class ="form-group col-xs-6" style="margin-bottom:2px">
 									<label>Artikelnummer</label>
 									<s:textfield name="artNr"  placeholder="..." cssClass = "form-control"/>
 								</div>
+								<div class ="form-group col-xs-6" style="margin-bottom:2px">
+									<div class ="form-group">
+										<label>Name</label>
+										<s:textfield name="name" placeholder="..." cssClass = "form-control"/>
+									</div>
+								</div>
+							</div>
 								
-								<div class ="form-group">
-									<label>Name</label>
-									<s:textfield name="name" placeholder="..." cssClass = "form-control"/>
-								</div>
-									
-								<div class ="form-group">
-									<label>Preis</label>
-									<s:textfield name="price" placeholder="..." cssClass = "form-control"/>
-								</div>
-														
 								<div class ="form-group">
 									<label>Beschreibung</label>
 									<s:textarea name="description" placeholder="..." cssClass = "form-control"/>
 								</div>
 								
 								<div class ="form-group">
+				  				 	<label>Erscheinungsdatum</label>
+	 								<div class="input-group">
+	                					<s:textfield type="text" id="dateCreate" cssClass="form-control" name ="releaseDateForCreate"/>
+	                					<span class="input-group-addon"><span class ="glyphicon glyphicon-calendar"></span></span> 
+	            					</div>
+	            				</div>
+									
+								<div class ="form-group">
+									<label>Preis</label>
+									<s:textfield name="price" placeholder="..." cssClass = "form-control"/>
+								</div>
+																
+								<div class ="form-group">
 									<label for="sel1">Kategorie</label>
 			  						<s:select name="catIdFromSelectCreate" value="catIdFromSelectCreate" cssClass="form-control" 
-			  							 list="catResult" listValue="catId" listKey="catId"/>
+			  							 list="catResult" listValue="name" listKey="catId"/>
 			  					</div>
 								
 								<div class = "pull-right">
@@ -85,9 +97,9 @@
   						<div class="panel-body">
   							<s:form action="deleteProduct" theme ="simple">		
 								<div class ="form-group">
-									<label for="sel1">Artikelnummer</label>
+									<label for="sel1">Artikel</label>
 			  						<s:select name="idFromSelectDelete" value="idFromSelectDelete" cssClass="form-control" 
-			  							 list="result" listValue="id" listKey="id"/>
+			  							 list="result" listValue="name" listKey="id"/>
 			  					</div>
 								<div class = "pull-right">
 									<s:submit method="execute" value="Löschen" cssClass="btn btn-danger"/>
@@ -102,46 +114,51 @@
   						<div class="panel-body">
   							<s:form theme ="simple">				  					
 			  					<div class ="form-group">
-									<label for="sel1">Artikelnummer</label>
+									<label for="sel1">Artikel</label>
 			  						<s:select name="idFromSelectEdit" value="idFromSelectEdit" cssClass="form-control" 
-			  							 list="result" listValue="id" listKey="id"/>
+			  							 list="result" listValue="name" listKey="id"/>
 			  					</div>
 			  						  						
 			  					<div class ="form-group">
 									<label>Name</label>
 									<s:textfield name="nameForEdit"  cssClass = "form-control"/>
 								</div>
-								<div class ="form-group">
-									<label>Preis</label>
-									<s:textfield name="priceForEdit" cssClass = "form-control"/>
-								</div>
+								
 								<div class ="form-group">
 									<label>Beschreibung</label>
 									<s:textarea name="descriptionForEdit" cssClass = "form-control" />
 								</div>
 								
 								<div class ="form-group">
-									<label>Kategorie</label>
-									<s:textfield name="catForEditShow" cssClass = "form-control" disabled ="true"/>
-								</div>
+				  				 	<label>Erscheinungsdatum</label>
+	 								<div class="input-group">
+	                					<s:textfield type="text" id="dateEdit" cssClass="form-control" name ="releaseDate"/>
+	                					<span class="input-group-addon"><span class ="glyphicon glyphicon-calendar"></span></span> 
+	            					</div>
+	            				</div>
 								
 								<div class ="form-group">
-									<label for="sel1">Neue Kategorie wählen</label>
-			  						<s:select name="catIdFromSelectEdit" value="catIdFromSelectEdit" cssClass="form-control" 
-			  							 list="catResult" listValue="catId" listKey="catId"/>
+									<label>Preis</label>
+									<s:textfield name="priceForEdit" cssClass = "form-control"/>
+								</div>
+								
+								<div class ="row">
+									<div class ="form-group col-xs-6">
+										<div class ="form-group">
+											<label>Kategorie</label>
+											<s:textfield name="catForEditShow" cssClass = "form-control" disabled ="true"/>
+										</div>
+									</div>
+								
+									<div class ="form-group col-xs-6">
+										<div class ="form-group">
+											<label for="sel1">Neue Kategorie wählen</label>
+			  								<s:select name="catIdFromSelectEdit" value="catIdFromSelectEdit" cssClass="form-control" 
+			  									 list="catResult" listValue="name" listKey="catId"/>
+			  							</div>
+			  						</div>
 			  					</div>
 			  					
-			  					<%-- <div class ="form-group">
-									<label>Erscheinungsdatum</label>
-									<s:textfield name="testDate" cssClass = "form-control" disabled ="true"/>
-								</div>
- --%>			  					
- 								<div class="input-group">
-                					<s:textfield type="text" id="example1" cssClass="form-control" name ="testDate"/>
-                					<span class="input-group-addon"><span class ="glyphicon glyphicon-calendar"></span></span> 
-            					</div>
- 								
- 
 			  					<div class = "pull-right">
 			  						<div class ="btn-group" role ="group">
 			  							<s:submit action="showProduct" value="Anzeigen" cssClass="btn btn-default"/>
@@ -159,14 +176,12 @@
         <script type="text/javascript">
 
             $(document).ready(function () {
-                $('#example1').datepicker({
-                    format: "dd.mm.yyyy",
-                    
-                   
-                 
+                $('#dateCreate').datepicker({
+                    format: "dd.mm.yyyy",       
                 });
-                
-               
+                $('#dateEdit').datepicker({
+                    format: "dd.mm.yyyy",         
+                });
             });
         </script>
 		

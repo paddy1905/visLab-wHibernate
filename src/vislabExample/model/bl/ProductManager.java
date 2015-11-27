@@ -1,6 +1,7 @@
 package vislabExample.model.bl;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ProductManager {
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Product> getProductsBySearch(String description, 
-			double preisMin, double preisMax, Category category ) {
+			double preisMin, double preisMax, Category category, Date releaseDate, Date releaseDateMax ) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
@@ -30,6 +31,9 @@ public class ProductManager {
 //		if(category != 0) {
 //			crit.add(Restrictions.eq("catId", category));
 //		}
+		
+		
+		crit.add(Restrictions.between("releaseDate", releaseDate, releaseDateMax));
 		
 		if(!description.isEmpty()) {
 			crit.add(Restrictions.like("description", "%"+description+"%"));

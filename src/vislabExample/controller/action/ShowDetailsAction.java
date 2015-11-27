@@ -1,6 +1,8 @@
 package vislabExample.controller.action;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -19,6 +21,7 @@ public class ShowDetailsAction extends ActionSupport {
 	private double price;
 	private String catName;
 	private int prodNr;
+	private String releaseDate;
 	
 	private ArrayList<Product> relatedProducts;
 	
@@ -48,8 +51,21 @@ public class ShowDetailsAction extends ActionSupport {
 		setPrice(product.getPrice());
 		setCatName(product.getCategory().getName());
 		
-		relatedProducts = productManager.getRelatedProducts(product.getCategory(), product.getId());
+		Date dateToFormat = product.getReleaseDate();
+		SimpleDateFormat sm = new SimpleDateFormat("dd.MM.yyyy");
+		String newDate = sm.format(dateToFormat);
+		setReleaseDate(newDate);
 		
+		
+		relatedProducts = productManager.getRelatedProducts(product.getCategory(), product.getId());
+		ArrayList<Product> tempProducts = new ArrayList<>();
+		
+		if(relatedProducts.size() > 4) {
+			for(int i = 0; i < 4; i++) {
+				tempProducts.add(relatedProducts.get(i));
+			}
+			relatedProducts = tempProducts;
+		}
 		return "success";
 	}
 
@@ -117,6 +133,18 @@ public class ShowDetailsAction extends ActionSupport {
 
 	public void setProdNr(int prodNr) {
 		this.prodNr = prodNr;
+	}
+
+
+
+	public String getReleaseDate() {
+		return releaseDate;
+	}
+
+
+
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
 	}
 
 }

@@ -18,6 +18,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.Type;
 
 @Entity
@@ -45,37 +47,28 @@ public class Product implements java.io.Serializable {
 	@Column(name="description", length = 1300)
     private String description;
 
-    @Column(name="price")
+    @Column(name="price", precision=10, scale=2)
 	private double price;
 
     @ManyToOne
+    @OnDelete(action=OnDeleteAction.CASCADE)
     @JoinColumn(name="catId")
     private Category category;
     
-    @Column(name="testDate")
+    @Column(name="releaseDate")
     @Type(type="date")
-    private Date testDate;
+    private Date releaseDate;
     
-
-	
-	
-	public Date getTestDate() {
-		return testDate;
-	}
-
-	public void setTestDate(Date testDate) {
-		this.testDate = testDate;
-	}
-
 	public Product() {
 		
 	}
 	
-	public Product(int id, String name, String description, double price, Category category) {
+	public Product(int id, String name, String description, double price,Date releaseDate, Category category) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.price = price;
+		this.releaseDate = releaseDate;
 		this.category = category;	
 	}
 
@@ -120,4 +113,12 @@ public class Product implements java.io.Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public Date getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(Date releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
 }

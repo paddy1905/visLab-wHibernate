@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class = "row">
-		<div class ="col-md-3 col-md-offset-4">
+		<div class ="col-md-5 col-md-offset-3">
 			<div class="panel panel-default">
 	  					<div class="panel-heading">
 							<h2>Registrierung</h2>
@@ -23,29 +23,42 @@
 									<s:textfield name="username" cssClass ="form-control"/> 
 								</div>
 							
-								<div class = "form-group">
-									<label>Passwort</label>
-									<s:password name="password" cssClass = "form-control" /><br>
-								</div>
+							
+								<div class ="row">
+									<div class ="form-group col-xs-6" style="margin-bottom:2px">
+										<div class = "form-group">
+											<label>Passwort</label>
+											<s:password name="password" cssClass = "form-control" />
+										</div>
+									</div>
 								
-								<div class = "form-group">
-									<label>Passwort wiederholen</label>
-									<s:password name="passwordRepeat" cssClass = "form-control" /><br>
+									<div class ="form-group col-xs-6" style="margin-bottom:2px">
+										<div class = "form-group">
+											<label>Passwort wiederholen</label>
+											<s:password name="passwordRepeat" cssClass = "form-control" />
+										</div>
+									</div>
 								</div>
 								
 								<div class = "form-group">
 									<label>Vorname</label>
-									<s:textfield name="firstname" cssClass = "form-control" /><br>
+									<s:textfield name="firstname" cssClass = "form-control" />
 								</div>
 								
 								<div class = "form-group">
 									<label>Nachname</label>
-									<s:textfield name="lastname" cssClass = "form-control" /><br>
+									<s:textfield name="lastname" cssClass = "form-control" />
 								</div>
 								
+																
 								<div class = "pull-right">
 									<s:submit method="execute" value="Registrieren" align="center" cssClass="btn btn-success"/>
 								</div>
+								
+								<div>
+									<p><a href="<s:url action="User_forward"/>">Zurück zum Login</a> </p>
+					 			</div>
+								
 							</s:form>
 						</div>
 			</div>

@@ -37,8 +37,8 @@
                    <img src="http://placehold.it/800x200" alt="">
                     <div class="caption-full">
                         <h4 class="pull-right"><s:property value="price"/> Euro</h4>
-                        <h4><a href="#"><s:property value ="name"/></a>
-                        </h4>
+                        <h3><a href="#"><s:property value ="name"/> <small><s:property value ="releaseDate"/></small></a></h3>
+                       
                         <p>
                          <s:property value ="description"/>
                         </p>
@@ -60,53 +60,28 @@
                 <h3>Ähnliche Artikel</h3>
             </div>
         </div>
-                <div class="row text-center">
+                
+        <div class="row text-center">
 
-           <s:iterator value ="relatedProducts" begin="0" end="3">
-		 <div class="col-md-3 col-sm-6 hero-feature">
+           <s:iterator value ="relatedProducts">
+		 	<div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
                     <img src="http://placehold.it/800x500" alt="">
                     <div class="caption">
                         <h3><s:property value ="name"/></h3>
-                      <%--   <p><s:property value ="description"/></p> --%>
                         <p>
-                   
-                            <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                        </p>
+	                   		<s:form action="showDetails" theme ="simple">
+					 			<s:hidden name ="detailKey" value="%{id}"/>
+					 			<s:submit value="Details" cssClass="btn btn-default"/>
+					 			<a href="#" class="btn btn-default">Buy Now!</a>
+					 		</s:form>                         
+				 		</p>
                     </div>
                 </div>
             </div>
-		
-		</s:iterator>
-
-        </div>
-                
-			</div>	
-			
-			
-			
-			
-			
-			
-					
-		
-		
-				
-		</div>
-		
-		
-		              
-
-
-   
-
-   
-
-   
-		<%-- <s:property value ="prodNr" />
-		<s:property value ="name"/>
-		<s:property value ="description"/>
-		<s:property value ="price"/>
-		<s:property value ="catName"/> --%>
-	</body>
+		   </s:iterator>
+	    </div>
+       </div>	
+	</div>
+  </body>
 </html>

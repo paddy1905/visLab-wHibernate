@@ -24,7 +24,16 @@ public class BaseProductEditAction extends ActionSupport {
 	protected int nrForEdit;
 	protected String catForEditShow;
 	protected int catIdFromSelectEdit;
+	protected String releaseDate;
 	
+	public String getReleaseDate() {
+		return releaseDate;
+	}
+
+	public void setReleaseDate(String releaseDate) {
+		this.releaseDate = releaseDate;
+	}
+
 	protected ArrayList<Product> result;
 	protected ArrayList<Category> catResult;
 	

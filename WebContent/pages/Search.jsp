@@ -6,6 +6,7 @@
 	<head>
 		<title >Suche</title>
 		<link rel="stylesheet" type="text/css" href="common/bootstrap/bootstrap.min.css">
+		<link rel="stylesheet" href="common/bootstrap/datepicker.css">
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -39,33 +40,54 @@
 										<s:textfield name="description"  placeholder="Shirt.." cssClass = "form-control"/>
 									</div>
 									
-									<div class ="form-group">
-										<label>Preis minimum</label>
-										<s:textfield name="preisMin" placeholder="15" cssClass = "form-control"/>
-									</div>
-															
-									<div class ="form-group">
-										<label>Preis maximum</label>
-										<s:textfield name="preisMax" placeholder="30" cssClass = "form-control"/>
+									<div class ="row">
+										<div class ="form-group col-xs-6">
+											<label>Preis minimum</label>
+											<s:textfield name="preisMin" placeholder="15" cssClass = "form-control"/>
+										</div>	
+										<div class ="form-group col-xs-6">
+											<label>Preis maximum</label>
+											<s:textfield name="preisMax" placeholder="30" cssClass = "form-control"/>
+										</div>
 									</div>
 									
+			  						<div class ="row">
+										<div class ="form-group col-xs-6" style="margin-bottom:2px">
+			  								<div class ="form-group">
+				  				 				<label>Erscheinungsdatum</label>
+	 											<div class="input-group">
+	                								<s:textfield type="text" id="dateCreate" cssClass="form-control" name ="releaseDate"/>
+	                								<span class="input-group-addon"><span class ="glyphicon glyphicon-calendar"></span></span> 
+	            								</div>
+	            							</div>
+	            						</div>
+	            					
+	            						<div class ="form-group col-xs-6" style="margin-bottom:2px">
+					  						<div class ="form-group">
+						  				 		<label>Erscheinungsdatum</label>
+			 									<div class="input-group">
+			                						<s:textfield type="text" id="dateCreateMax" cssClass="form-control" name ="releaseDateMax"/>
+			                						<span class="input-group-addon"><span class ="glyphicon glyphicon-calendar"></span></span> 
+			            						</div>
+			            					</div>
+	            						</div>
+	            					</div>
+	
 									<div class ="form-group">
 										<label>Kategorien</label>
-			  						<s:select name="catIdForSearch" value="catIdForSearch" cssClass="form-control" 
-			  							 list="resultCat" listValue="catId" listKey="catId"/>
+			  							<s:select name="catIdForSearch" value="catIdForSearch" cssClass="form-control" 
+			  							 list="resultCat" listValue="name" listKey="catId" emptyOption="true"/>
 			  						</div>
-			  						
-															
+														
 									<div class = "pull-right">
 										<s:submit method="execute" value="Suchen" cssClass="btn btn-default"/>
 									</div>
-								</s:form>
+								</s:form>	
 		 					</div>
 	 				</div>
 	 			</div>
 	 			
 	 			<div class ="col-md-7">
-	 			
 	 				<h3>Suchergebnisse:</h3>
 	 				<table class ="table table-striped">
 	 					<thead>
@@ -97,5 +119,22 @@
  				</div>	
  			</div>	
 		</div>
+		
+		<script src="common/js/jquery-1.9.1.min.js"></script>
+        <script src="common/js/bootstrap-datepicker.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $('#dateCreate').datepicker({
+                    format: "dd.mm.yyyy",       
+                });
+                $('#dateCreateMax').datepicker({
+                    format: "dd.mm.yyyy",       
+                });
+               
+            });
+        </script>
+		
+		
 	</body>
 </html>

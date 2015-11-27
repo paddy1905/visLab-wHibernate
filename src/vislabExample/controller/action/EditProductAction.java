@@ -4,6 +4,12 @@ package vislabExample.controller.action;
 
 
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+
 import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;
 import vislabExample.model.db.Category;
@@ -23,8 +29,19 @@ public class EditProductAction extends BaseProductEditAction {
 		
 		Category category = categoryManager.getCategoryWithPrimaryKey(catIdFromSelectEdit);
 		
-		Product product = new Product (idFromSelectEdit,nameForEdit, descriptionForEdit,priceForEdit,category);
+		Product product = new Product (idFromSelectEdit,nameForEdit, descriptionForEdit,priceForEdit,new Date(),category);
 		
+		DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		try {
+			Date date = formatter.parse(releaseDate);
+			System.out.println(date);
+			System.out.println(formatter.format(date));
+			product.setReleaseDate(date);
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
 		boolean updated = productManager.editProduct(product);
 		
 		result = productManager.getAllProducts();
