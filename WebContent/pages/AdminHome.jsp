@@ -15,9 +15,9 @@
    				</div>
     			<div>
 	      			<ul class="nav navbar-nav">
-	       				<li class="active"><a href="<s:url action ="openHome"/>">Home</a></li>
-	       				<li><a href="<s:url action ="openSearch"/>">Suche</a></li>
-	       				<li><a href="<s:url action ="openProduct"/>">Produkte</a></li>
+	       				<li class="active"><a href="<s:url action ="openAdminHome"/>">Home</a></li>
+	       				<li><a href="<s:url action ="openProductArea"/>">Produktverwaltung</a></li>
+	       				<li><a href="<s:url action ="openCategoryArea"/>">Kategorieverwaltung</a></li>
 	      			</ul>
 	      			<ul class="nav navbar-nav navbar-right">
         				<li><a href="<s:url action = "logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -28,8 +28,9 @@
 		
 		<div class="container">
 			<div class="jumbotron">
-  				<h1>Willkommen</h1> 
-  				<p>Wir bieten eine große Auswahl an Filmen aus verschiedenen Kategorien</p> 
+  				<h1>Willkommen im Adminbereich</h1> 
+  				<p>Hier haben sie die Möglichkeit Produkte sowie Kategorien
+  				anzulegen, zu bearbeiten und diese zu löschen</p> 
 			</div>
 		</div>
 	</body>

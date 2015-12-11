@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 import com.sun.xml.internal.bind.v2.TODO;
 
@@ -16,7 +17,7 @@ import vislabExample.model.db.Product;
 
 
 
-public class CreateProductAction extends ActionSupport{
+public class CreateProductAction extends ActionSupport implements Preparable{
 	
 	/**
 	 * 
@@ -33,33 +34,44 @@ public class CreateProductAction extends ActionSupport{
 	private ArrayList<Product> result;
 	private ArrayList<Category> catResult;
 	
+	@Override
+	public void prepare() throws Exception {
+		ProductManager productManager = new ProductManager();
+		CategoryManager categoryManager = new CategoryManager();
+		
+		result = productManager.getAllProducts();
+		catResult = categoryManager.getAllAvailableCategories();
+		
+	}
+	
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
 		CategoryManager categoryManager = new CategoryManager();
 		
 		if(productManager.getProductForPrimaryKey(artNr) != null) {
-			addActionMessage("Artikel: " + artNr +" bereits vergeben");
 			result = productManager.getAllProducts();
 			catResult = categoryManager.getAllAvailableCategories();
+			addActionMessage("Artikel: " + artNr +" bereits vergeben");
 			return "success";
 		}
 		
 		Category category = categoryManager.getCategoryWithPrimaryKey(catIdFromSelectCreate);
-		Product product = new Product(artNr,name,description,price,new Date(), category);
+		Product product = new Product(artNr,name,description,price, new Date() ,category);
 		
-		
-		DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-		try {
-			Date date = formatter.parse(releaseDateForCreate);
-			product.setReleaseDate(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
+		if(!releaseDateForCreate.isEmpty()) {
+			DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+			try {
+				Date date = formatter.parse(releaseDateForCreate);
+				product.setReleaseDate(date);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 		}
-		
+	
 		productManager.createNewProduct(product);
 		result = productManager.getAllProducts();
 		catResult = categoryManager.getAllAvailableCategories();
-			
+		
 		addActionMessage("Erfolgreich angelegt: " + artNr);
 		return "success";
 		

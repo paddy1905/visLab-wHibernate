@@ -71,7 +71,7 @@ public class Product implements java.io.Serializable {
 		this.releaseDate = releaseDate;
 		this.category = category;	
 	}
-
+	
 	public String getName() {
 		return name;
 	}

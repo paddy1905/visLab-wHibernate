@@ -17,16 +17,16 @@
 	  						<h2>Login</h2>
 	  					</div>
 	  					<div class="panel-body">
-							<s:form action="User_login" focusElement="username" theme = "simple"> 
+							<s:form action="User_login" focusElement="username" theme="simple"> 
 									
 								<div class = "form-group">
-									<label>Benutzername</label>
+									<label>Benutzername <font color="red">*</font></label>
 									<s:textfield name="username" cssClass ="form-control"/>
 								</div>
 								
 								<div class = "form-group">
-									<label>Passwort</label>
-									<s:password name="password" cssClass = "form-control" /><br>
+									<label>Passwort <font color="red">*</font></label>
+									<s:password name="password" cssClass = "form-control" />
 								</div>
 									
 								<div class = "pull-right">
@@ -46,7 +46,15 @@
 						  			</div>
 					  			</s:if>
   							</div>
-  						</div>
+  							
+  							<s:if test="hasFieldErrors()">
+  								<div class="alert alert-danger" role="alert">
+						  			<span class="sr-only">Error:</span>
+						  				<s:fielderror fieldName="username" cssStyle="color: #DE3A75; list-style: none;"/>
+						  				<s:fielderror fieldName="password" cssStyle="color: #DE3A75; list-style: none;"/>
+						  		</div>	
+						  	</s:if>
+  						</div>	
   			</div>
 		</div>
 	</div>	 

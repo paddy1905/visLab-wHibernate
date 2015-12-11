@@ -19,7 +19,7 @@
 	  					<div class="panel-body">
 							<s:form action="User_registred" theme = "simple">   
 								<div class = "form-group">
-									<label>Benutzername</label>
+									<label>Benutzername <font color="red">*</font></label>
 									<s:textfield name="username" cssClass ="form-control"/> 
 								</div>
 							
@@ -27,15 +27,15 @@
 								<div class ="row">
 									<div class ="form-group col-xs-6" style="margin-bottom:2px">
 										<div class = "form-group">
-											<label>Passwort</label>
+											<label>Passwort <font color="red">*</font></label>
 											<s:password name="password" cssClass = "form-control" />
 										</div>
 									</div>
 								
 									<div class ="form-group col-xs-6" style="margin-bottom:2px">
 										<div class = "form-group">
-											<label>Passwort wiederholen</label>
-											<s:password name="passwordRepeat" cssClass = "form-control" />
+											<label>Passwort wiederholen <font color="red">*</font></label>
+											<s:password name="passwordRepeat" cssClass = "form-control" requiredLabel="true" />
 										</div>
 									</div>
 								</div>
@@ -60,7 +60,18 @@
 					 			</div>
 								
 							</s:form>
+							<div style="padding-top:5px">
+								<s:if test="hasFieldErrors()">
+									<div class="alert alert-danger" role="alert">
+								  		<span class="sr-only">Error:</span>
+								  			<s:fielderror fieldName="username" cssStyle="color: #DE3A75; list-style: none;"/>
+								  			<s:fielderror fieldName="password" cssStyle="color: #DE3A75; list-style: none;"/>
+								  			<s:fielderror fieldName="passwordRepeat" cssStyle="color: #DE3A75; list-style: none;"/>
+							  	</s:if>
+							</div>
 						</div>
+						
+						  	</div>	
 			</div>
 		</div>
 	</div>

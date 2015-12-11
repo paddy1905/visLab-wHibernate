@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
 import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;
@@ -12,20 +13,24 @@ import vislabExample.model.db.Product;
 
 
 
-public class CreateCategoryAction extends ActionSupport{
+public class CreateCategoryAction extends ActionSupport implements Preparable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
-	
-
 	private int catNr;
 	private String name;
 	
 	private ArrayList<Category> catResult;
+	
+	
+	@Override
+	public void prepare() throws Exception {
+		CategoryManager categoryManager = new CategoryManager();
+		catResult = categoryManager.getAllAvailableCategories();
+	}
 	
 	public String execute() throws Exception {
 		CategoryManager categoryManager = new CategoryManager();
@@ -71,5 +76,7 @@ public class CreateCategoryAction extends ActionSupport{
 	public void setCatNr(int catNr) {
 		this.catNr = catNr;
 	}
+
+	
 }
 	

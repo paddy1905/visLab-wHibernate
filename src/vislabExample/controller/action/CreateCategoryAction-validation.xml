@@ -2,14 +2,15 @@
         "-//Apache Struts//XWork Validator 1.0.2//EN"
         "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 <validators>
-    <field name="username">
-        <field-validator type="requiredstring">
-            <message>Bitte Usernamen eingeben!</message>
+    <field name="catNr">
+        <field-validator type="int">
+        <param name="min">1</param>
+            <message>Die Nr muss größer als 0 sein</message>
         </field-validator>
     </field>
-    <field name="password">
+    <field name="name">
         <field-validator type="requiredstring">
-            <message>Bitte Passwort eingeben!</message>
+            <message>Bitte einen Namen angeben</message>
         </field-validator>
     </field>
 </validators>

@@ -20,9 +20,9 @@
 	      			<ul class="nav navbar-nav">
 	       				<li><a href="<s:url action ="openHome"/>">Home</a></li>
 	       				<li><a href="<s:url action ="openSearch"/>">Suche</a></li>
-	       				<li class="active"><a href="<s:url action ="openProduct"/>">Produkte</a></li>
-	       				<li><a href="<s:url action ="openAdminArea"/>">Admin Bereich</a></li>
-	      			</ul>
+	       				<li><a href="<s:url action ="openProduct"/>">Produkte</a></li>
+	       				<li class ="active"><a href="#">Details</a></li>
+	      			</ul>			
 	      			<ul class="nav navbar-nav navbar-right">
         				<li><a href="<s:url action = "logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       				</ul>

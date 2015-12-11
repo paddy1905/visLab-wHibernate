@@ -12,4 +12,9 @@
             <message>Bitte Passwort eingeben!</message>
         </field-validator>
     </field>
+     <field name="passwordRepeat">
+        <field-validator type="requiredstring">
+            <message>Bitte Passwort wiederholen!</message>
+        </field-validator>
+    </field>
 </validators>

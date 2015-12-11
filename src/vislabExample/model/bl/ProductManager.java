@@ -2,7 +2,6 @@ package vislabExample.model.bl;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -10,42 +9,28 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import vislabExample.model.db.Category;
-import vislabExample.model.db.Customer;
 import vislabExample.model.db.Product;
 import vislabExample.model.sf.HibernateUtil;
 
 public class ProductManager {
 	
-	
-	
-	
-	
-	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ArrayList<Product> getProductsBySearch(String description, 
-			double preisMin, double preisMax, Category category, Date releaseDate, Date releaseDateMax ) {
+			double priceMin, double priceMax, Category catId, Date releaseDate, Date releaseDateMax ) {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		
 		Criteria crit = session.createCriteria(Product.class);
-//		if(category != 0) {
-//			crit.add(Restrictions.eq("catId", category));
-//		}
-		
-		
+	
+		if(catId != null) {
+			crit.add(Restrictions.eq("category", catId));
+		}
 		crit.add(Restrictions.between("releaseDate", releaseDate, releaseDateMax));
-		
+		crit.add(Restrictions.between("price", priceMin, priceMax));
 		if(!description.isEmpty()) {
 			crit.add(Restrictions.like("description", "%"+description+"%"));
 		}
 		
-		if(!(preisMax == 0.0 && preisMin == 0.0)) {
-			crit.add(Restrictions.between("price", preisMin, preisMax));	
-		} else if(preisMax == 0.0 && preisMin > 0) {
-			crit.add(Restrictions.gt("price", preisMin));
-		} else if(preisMax > 0 && preisMin == 0.0) {
-			crit.add(Restrictions.lt("price", preisMax));
-		}
 		List result = crit.list();
 		
 		session.getTransaction().commit();

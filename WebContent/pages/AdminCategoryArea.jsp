@@ -14,11 +14,10 @@
       				<a class="navbar-brand" href="#">MyShop</a>
    				</div>
     			<div>
-	      			<ul class="nav navbar-nav">
-	       				<li><a href="<s:url action ="openHome"/>">Home</a></li>
-	       				<li><a href="<s:url action ="openSearch"/>">Suche</a></li>
-	       				<li><a href="<s:url action ="openProduct"/>">Produkte</a></li>
-	       				<li class="active"><a href="<s:url action ="openAdminArea"/>">Admin Bereich</a></li>
+    			<ul class="nav navbar-nav">
+	       				<li><a href="<s:url action ="openAdminHome"/>">Home</a></li>
+	       				<li><a href="<s:url action ="openProductArea"/>">Produktverwaltung</a></li>
+	       				<li class="active"><a href="<s:url action ="openCategoryArea"/>">Kategorieverwaltung</a></li>
 	      			</ul>
 	      			<ul class="nav navbar-nav navbar-right">
         				<li><a href="<s:url action = "logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -26,10 +25,6 @@
 	   			 </div>
   			</div>
 		</nav>
-		<ul class="nav nav-tabs">
-  			<li><a href="<s:url action = "openAdminArea"/>">Produktverwaltung</a></li>
-  			<li  class="active"><a href="#">Kategorieverwaltung</a></li>
-		</ul>
 	</body>
 	<div style="padding-left: 2%; padding-right: 2%; padding-top: 0.5%;">
 	 		<div class = "row">
@@ -45,13 +40,15 @@
   						<div class="panel-body">
   							<s:form action="createCategory" theme ="simple">		
 								<div class ="form-group">
-									<label>Kategorienummer</label>
+									<label>Kategorienummer <font color="red">*</font></label>
 									<s:textfield name="catNr"  placeholder="4" cssClass = "form-control"/>
+									<s:fielderror fieldName="catNr" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 								</div>
 								
 								<div class ="form-group">
-									<label>Name</label>
+									<label>Name <font color="red">*</font></label>
 									<s:textfield name="name" placeholder="Winterjacken" cssClass = "form-control"/>
+									<s:fielderror fieldName="name" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 								</div>
 														
 								<div class = "pull-right">

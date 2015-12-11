@@ -7,6 +7,7 @@
 		<title ><s:text name="welcome.title"/></title>
 		<link rel="stylesheet" type="text/css" href="common/bootstrap/bootstrap.min.css">
 		<link rel="stylesheet" href="common/bootstrap/datepicker.css">
+
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -16,10 +17,9 @@
    				</div>
     			<div>
 	      			<ul class="nav navbar-nav">
-	       				<li><a href="<s:url action ="openHome"/>">Home</a></li>
-	       				<li><a href="<s:url action ="openSearch"/>">Suche</a></li>
-	       				<li><a href="<s:url action ="openProduct"/>">Produkte</a></li>
-	       				<li class="active"><a href="<s:url action ="openAdminArea"/>">Admin Bereich</a></li>
+	       				<li><a href="<s:url action ="openAdminHome"/>">Home</a></li>
+	       				<li class="active"><a href="<s:url action ="openProductArea"/>">Produktverwaltung</a></li>
+	       				<li><a href="<s:url action ="openCategoryArea"/>">Kategorieverwaltung</a></li>
 	      			</ul>
 	      			<ul class="nav navbar-nav navbar-right">
         				<li><a href="<s:url action = "logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -27,10 +27,6 @@
 	   			 </div>
   			</div>
 		</nav>
-		<ul class="nav nav-tabs">
-  			<li class="active"><a href="#">Produktverwaltung</a></li>
-  			<li><a href="<s:url action ="openAdminCat"/>">Kategorieverwaltung</a></li>
-		</ul>
 		
 		<div style="padding-left: 2%; padding-right: 2%; padding-top: 0.5%;">
 	 		<div class = "row">
@@ -48,13 +44,17 @@
   							
   							<div class ="row">	
 								<div class ="form-group col-xs-6" style="margin-bottom:2px">
-									<label>Artikelnummer</label>
+									<label>Artikelnummer <font color="red">*</font></label>
 									<s:textfield name="artNr"  placeholder="..." cssClass = "form-control"/>
+									<s:fielderror fieldName="artNr" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
+						  					
+						  	
 								</div>
 								<div class ="form-group col-xs-6" style="margin-bottom:2px">
 									<div class ="form-group">
-										<label>Name</label>
+										<label>Name <font color="red">*</font></label>
 										<s:textfield name="name" placeholder="..." cssClass = "form-control"/>
+										<s:fielderror fieldName="name" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 									</div>
 								</div>
 							</div>
@@ -75,6 +75,7 @@
 								<div class ="form-group">
 									<label>Preis</label>
 									<s:textfield name="price" placeholder="..." cssClass = "form-control"/>
+									<s:fielderror fieldName="price" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 								</div>
 																
 								<div class ="form-group">

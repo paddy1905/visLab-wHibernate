@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
@@ -21,6 +23,10 @@ public class SearchAction extends ActionSupport{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static final String MIN_DATE = "01.01.1800";
+	private static final String MAX_Date = "31.12.2050";
+	private static final double MAX_PRICE = 500.00;
+	
 	private String description;
 	private double preisMin;
 	private double preisMax;
@@ -32,23 +38,29 @@ public class SearchAction extends ActionSupport{
 	private ArrayList<Product> result;
 	
 	public String execute() throws Exception {
-				ProductManager productManager = new ProductManager();
+		ProductManager productManager = new ProductManager();
 		CategoryManager categoryManager = new CategoryManager();
 		
-		DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-		Date date = formatter.parse(releaseDate);
-		Date dateMax = formatter.parse(releaseDateMax);
-			
 		Category categoryForSearch = categoryManager.getCategoryWithPrimaryKey(catIdForSearch);
 		
+		DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		Date date = formatter.parse(MIN_DATE);
+		Date dateMax = formatter.parse(MAX_Date);
+		
+		if(!releaseDate.isEmpty()) {
+			date = formatter.parse(releaseDate);
+		}
+		if(!releaseDateMax.isEmpty()) {
+			dateMax = formatter.parse(releaseDateMax); 
+		}
+		
+		if(preisMax == 0.0) {
+			preisMax = MAX_PRICE;
+		}
+		
 		result = productManager.getProductsBySearch(description, preisMin, preisMax, categoryForSearch, date, dateMax);
-		
-		
-
 		setResultCat(categoryManager.getAllAvailableCategories());
-		System.out.println("HIER KOMMT" + catIdForSearch);
 
-		
 		return "success";
 	}
 	

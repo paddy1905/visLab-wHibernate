@@ -36,7 +36,10 @@ public class LoginAction extends ActionSupport {
 	    
 		if (customer.getPassword().equals(getPassword())) {
 			setFirstname(customer.getFirstname());
-			setLastname(customer.getLastname());	
+			setLastname(customer.getLastname());
+			if(customer.getUsername().startsWith("admin")) {
+				return "admin";
+			}
 			return SUCCESS;
 		} else {
 			addActionError("Passwort falsch");

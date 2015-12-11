@@ -26,6 +26,7 @@
         <action name="User_login" class="vislabExample.controller.action.LoginAction">
             <result name="success">/pages/Home.jsp</result>
             <result name="input">/pages/Login.jsp</result>
+            <result name="admin">/pages/AdminHome.jsp</result>
         </action>
         
         <action name="register">
@@ -35,18 +36,19 @@
          <action name="User_registred" class="vislabExample.controller.action.RegisterAction">
         	<result name="success">/pages/Home.jsp</result>
         	<result name="input">/pages/Registry.jsp</result>
+        	<result name="admin">/pages/AdminHome.jsp</result>
         </action>
         
         <action name="openSearch" class ="vislabExample.controller.action.OpenSearchAction">
         	<result name ="success">/pages/Search.jsp</result>
         </action>
         
-        <action name="openAdminArea" class ="vislabExample.controller.action.OpenAdminAreaAction">
-       		<result>/pages/Adminbereich.jsp</result>
+        <action name="openProductArea" class ="vislabExample.controller.action.OpenAdminAreaAction">
+       		<result>/pages/AdminProductArea.jsp</result>
         </action>
         
-         <action name="openAdminCat" class ="vislabExample.controller.action.OpenAdminAreaCategoryAction">
-       		<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+         <action name="openCategoryArea" class ="vislabExample.controller.action.OpenAdminAreaCategoryAction">
+       		<result name ="success">/pages/AdminCategoryArea.jsp</result>
         </action>
         
  
@@ -56,8 +58,12 @@
         	<result>/pages/Home.jsp</result>
         </action>
         
-         <action name="openProduct" class ="vislabExample.controller.action.OpenSearchAction">
-        	<result name ="success">/pages/Products.jsp</result>
+        <action name="openAdminHome">
+        	<result>/pages/AdminHome.jsp</result>
+        </action>
+        
+         <action name="openProduct" class ="vislabExample.controller.action.OpenProductOverviewAction">
+        	<result name ="success">/pages/Product.jsp</result>
         </action>
         
          <action name="logout">
@@ -70,40 +76,42 @@
         </action>
         
         <action name ="editProduct" method="execute" class = "vislabExample.controller.action.EditProductAction">
-        	<result name ="success">/pages/Adminbereich.jsp</result>
+        	<result name ="success">/pages/AdminProductArea.jsp</result>
         </action>
         
         <action name ="showProduct" method="execute" class = "vislabExample.controller.action.EditShowProductAction">
-        	<result name ="success">/pages/Adminbereich.jsp</result>
+        	<result name ="success">/pages/AdminProductArea.jsp</result>
         </action>
         
         <action name="deleteProduct" class ="vislabExample.controller.action.DeleteProductAction">
-        	<result name ="success">/pages/Adminbereich.jsp</result>
+        	<result name ="success">/pages/AdminProductArea.jsp</result>
         </action>
         
          <action name="createProduct" class ="vislabExample.controller.action.CreateProductAction">
-        	<result name ="success">/pages/Adminbereich.jsp</result>
+        	<result name ="success">/pages/AdminProductArea.jsp</result>
+        	<result name ="input">/pages/AdminProductArea.jsp</result>
         </action>
         
         <action name="deleteCategory" class ="vislabExample.controller.action.DeleteCategoryAction">
-        	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        	<result name ="success">/pages/AdminCategoryArea.jsp</result>
         </action>
         
          <action name="createCategory" class ="vislabExample.controller.action.CreateCategoryAction">
-        	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        	<result name ="success">/pages/AdminCategoryArea.jsp</result>
+        	<result name ="input">/pages/AdminCategoryArea.jsp</result>
         </action>
         
          <action name="showCategory" method="execute" class ="vislabExample.controller.action.EditShowCategoryAction">
-        	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        	<result name ="success">/pages/AdminCategoryArea.jsp</result>
         </action>
         
         <action name="editCategory" method="execute" class ="vislabExample.controller.action.EditCategoryAction">
-        	<result name ="success">/pages/AdminbereichKategorie.jsp</result>
+        	<result name ="success">/pages/AdminCategoryArea.jsp</result>
         </action>
         
         
         <action name="showDetails" method="execute" class ="vislabExample.controller.action.ShowDetailsAction">
-        	<result name ="success">/pages/Products.jsp</result>
+        	<result name ="success">/pages/ProductDetail.jsp</result>
         </action>
        
     </package>

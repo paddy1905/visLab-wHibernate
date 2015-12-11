@@ -30,6 +30,9 @@ public class RegisterAction extends ActionSupport {
 			newCustomer.setFirstname(firstname);
 			newCustomer.setLastname(lastname);
 			manager.saveCustomer(newCustomer);
+			if(newCustomer.getUsername().startsWith("admin")) {
+				return "admin";
+			}
 			return "success";
 		} else {
 			return "fail";
