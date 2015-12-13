@@ -2,13 +2,14 @@
         "-//Apache Struts//XWork Validator 1.0.2//EN"
         "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
 <validators>
-    <field name="artNr">
-        <field-validator type="int">
-        <param name="min">1</param>
-            <message>Die Nr muss größer als 0 sein</message>
+    <field name="priceMin">
+        <field-validator type="regex">
+       		<param name="regex">^\d+(.\d{1,2})?$</param>
+       		<message>Overriden</message>
         </field-validator>
     </field>
-    <field name="price">
+    
+      <field name="priceMax">
         <field-validator type="regex">
        		<param name="regex">^\d+(.\d{1,2})?$</param>
        		<message>Overriden</message>

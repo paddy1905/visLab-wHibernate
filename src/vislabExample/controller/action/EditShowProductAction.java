@@ -10,19 +10,22 @@ package vislabExample.controller.action;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.struts2.interceptor.validation.SkipValidation;
+
+import com.opensymphony.xwork2.Preparable;
+
 import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;
 import vislabExample.model.db.Product;
 
 
-public class EditShowProductAction extends BaseProductEditAction {
+public class EditShowProductAction extends BaseProductEditAction implements Preparable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	
-
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
 		CategoryManager categoryManager = new CategoryManager();
@@ -50,6 +53,17 @@ public class EditShowProductAction extends BaseProductEditAction {
 		System.out.println(newDate);
 		
 		return "success";
+	}
+
+
+	@Override
+	public void prepare() throws Exception {
+		ProductManager productManager = new ProductManager();
+		CategoryManager categoryManager = new CategoryManager();
+		
+		result = productManager.getAllProducts();
+		catResult =categoryManager.getAllAvailableCategories();
+		
 	}
 
 	

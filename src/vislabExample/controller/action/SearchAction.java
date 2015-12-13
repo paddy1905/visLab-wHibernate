@@ -8,6 +8,7 @@ import java.util.Date;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import vislabExample.model.bl.CategoryManager;
@@ -17,7 +18,7 @@ import vislabExample.model.db.Product;
 
 
 
-public class SearchAction extends ActionSupport{
+public class SearchAction extends ActionSupport implements Preparable{
 	
 	/**
 	 * 
@@ -28,8 +29,8 @@ public class SearchAction extends ActionSupport{
 	private static final double MAX_PRICE = 500.00;
 	
 	private String description;
-	private double preisMin;
-	private double preisMax;
+	private double priceMin;
+	private double priceMax;
 	private int catIdForSearch;
 	private ArrayList<Category> resultCat;
 	private String releaseDate;
@@ -54,13 +55,12 @@ public class SearchAction extends ActionSupport{
 			dateMax = formatter.parse(releaseDateMax); 
 		}
 		
-		if(preisMax == 0.0) {
-			preisMax = MAX_PRICE;
+		if(priceMax == 0.0) {
+			priceMax = MAX_PRICE;
 		}
 		
-		result = productManager.getProductsBySearch(description, preisMin, preisMax, categoryForSearch, date, dateMax);
-		setResultCat(categoryManager.getAllAvailableCategories());
-
+		result = productManager.getProductsBySearch(description, priceMin, priceMax, categoryForSearch, date, dateMax);
+		
 		return "success";
 	}
 	
@@ -80,20 +80,20 @@ public class SearchAction extends ActionSupport{
 		this.description = description;
 	}
 
-	public double getPreisMin() {
-		return preisMin;
+	public double getPriceMin() {
+		return priceMin;
 	}
 
-	public void setPreisMin(double preisMin) {
-		this.preisMin = preisMin;
+	public void setPriceMin(double priceMin) {
+		this.priceMin = priceMin;
 	}
 
-	public double getPreisMax() {
-		return preisMax;
+	public double getPriceMax() {
+		return priceMax;
 	}
 
-	public void setPreisMax(double preisMax) {
-		this.preisMax = preisMax;
+	public void setPriceMax(double priceMax) {
+		this.priceMax = priceMax;
 	}
 
 	public ArrayList<Category> getResultCat() {
@@ -126,5 +126,12 @@ public class SearchAction extends ActionSupport{
 
 	public void setReleaseDateMax(String releaseDateMax) {
 		this.releaseDateMax = releaseDateMax;
+	}
+
+	@Override
+	public void prepare() throws Exception {
+		CategoryManager categoryManager = new CategoryManager();
+		
+		resultCat = categoryManager.getAllAvailableCategories();	
 	}		
 }

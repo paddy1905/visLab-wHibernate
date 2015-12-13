@@ -8,6 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.opensymphony.xwork2.Preparable;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import vislabExample.model.bl.CategoryManager;
@@ -17,11 +18,21 @@ import vislabExample.model.db.Product;
 
 
 
-public class EditProductAction extends BaseProductEditAction {
+public class EditProductAction extends BaseProductEditAction implements Preparable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Override
+	public void prepare() throws Exception {
+		ProductManager productManager = new ProductManager();
+		CategoryManager categoryManager = new CategoryManager();
+		
+		catResult = categoryManager.getAllAvailableCategories();
+		result = productManager.getAllProducts();
+		
+	}
 
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
@@ -31,15 +42,17 @@ public class EditProductAction extends BaseProductEditAction {
 		
 		Product product = new Product (idFromSelectEdit,nameForEdit, descriptionForEdit,priceForEdit,new Date(),category);
 		
-		DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-		try {
-			Date date = formatter.parse(releaseDate);
-			System.out.println(date);
-			System.out.println(formatter.format(date));
-			product.setReleaseDate(date);
-			
-		} catch (ParseException e) {
-			e.printStackTrace();
+		if(!releaseDate.isEmpty()) {
+			DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+			try {
+				Date date = formatter.parse(releaseDate);
+				System.out.println(date);
+				System.out.println(formatter.format(date));
+				product.setReleaseDate(date);
+				
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 		}
 
 		boolean updated = productManager.editProduct(product);

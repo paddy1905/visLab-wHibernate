@@ -73,14 +73,17 @@
         
         <action name ="Suchen" class = "vislabExample.controller.action.SearchAction">
         	<result name = "success">/pages/Search.jsp</result>
+        	<result name ="input">/pages/Search.jsp</result>
         </action>
         
         <action name ="editProduct" method="execute" class = "vislabExample.controller.action.EditProductAction">
         	<result name ="success">/pages/AdminProductArea.jsp</result>
+        	<result name="input">/pages/AdminProductArea.jsp</result>
         </action>
         
         <action name ="showProduct" method="execute" class = "vislabExample.controller.action.EditShowProductAction">
         	<result name ="success">/pages/AdminProductArea.jsp</result>
+        	<result name="input">/pages/AdminProductArea.jsp</result>
         </action>
         
         <action name="deleteProduct" class ="vislabExample.controller.action.DeleteProductAction">

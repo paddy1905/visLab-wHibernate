@@ -52,7 +52,7 @@
 								</div>
 								<div class ="form-group col-xs-6" style="margin-bottom:2px">
 									<div class ="form-group">
-										<label>Name <font color="red">*</font></label>
+										<label>Name</label>
 										<s:textfield name="name" placeholder="..." cssClass = "form-control"/>
 										<s:fielderror fieldName="name" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 									</div>
@@ -141,6 +141,7 @@
 								<div class ="form-group">
 									<label>Preis</label>
 									<s:textfield name="priceForEdit" cssClass = "form-control"/>
+									<s:fielderror fieldName="priceForEdit" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 								</div>
 								
 								<div class ="row">
