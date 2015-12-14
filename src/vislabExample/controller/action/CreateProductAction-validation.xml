@@ -5,13 +5,7 @@
     <field name="artNr">
         <field-validator type="int">
         <param name="min">1</param>
-            <message>Die Nr muss größer als 0 sein</message>
-        </field-validator>
-    </field>
-    <field name="price">
-        <field-validator type="regex">
-       		<param name="regex">^\d+(.\d{1,2})?$</param>
-       		<message>Overriden</message>
+            <message>Bitte geben Sie eine Artikelnummer an</message>
         </field-validator>
     </field>
 </validators>

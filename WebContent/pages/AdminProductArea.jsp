@@ -45,7 +45,7 @@
   							<div class ="row">	
 								<div class ="form-group col-xs-6" style="margin-bottom:2px">
 									<label>Artikelnummer <font color="red">*</font></label>
-									<s:textfield name="artNr"  placeholder="..." cssClass = "form-control"/>
+									<s:textfield type="number" min="1" name="artNr"  placeholder="..." cssClass = "form-control"/>
 									<s:fielderror fieldName="artNr" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 						  					
 						  	
@@ -74,7 +74,7 @@
 									
 								<div class ="form-group">
 									<label>Preis</label>
-									<s:textfield name="price" placeholder="..." cssClass = "form-control"/>
+									<s:textfield type="number" step="0.01" name="price" placeholder="..." cssClass = "form-control"/>
 									<s:fielderror fieldName="price" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 								</div>
 																
@@ -140,7 +140,7 @@
 								
 								<div class ="form-group">
 									<label>Preis</label>
-									<s:textfield name="priceForEdit" cssClass = "form-control"/>
+									<s:textfield name="priceForEdit" type="number" step="0.01" cssClass = "form-control"/>
 									<s:fielderror fieldName="priceForEdit" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 								</div>
 								

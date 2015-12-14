@@ -18,22 +18,12 @@ import vislabExample.model.db.Product;
 
 
 
-public class EditProductAction extends BaseProductEditAction implements Preparable {
+public class EditProductAction extends BaseProductEditAction {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Override
-	public void prepare() throws Exception {
-		ProductManager productManager = new ProductManager();
-		CategoryManager categoryManager = new CategoryManager();
-		
-		catResult = categoryManager.getAllAvailableCategories();
-		result = productManager.getAllProducts();
-		
-	}
-
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
 		CategoryManager categoryManager = new CategoryManager();

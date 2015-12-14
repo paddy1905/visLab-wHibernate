@@ -39,11 +39,11 @@ public class RegisterAction extends ActionSupport {
 		}	
 	}
 	
-//	public void validate() {
-//		if(!this.password.equals(this.passwordRepeat)){
-//			addFieldError("passwordRepeat", "Passwörter sind nicht identisch!");
-//		}
-//	}
+	public void validate() {
+		if(!this.password.equals(this.passwordRepeat)){
+			addFieldError("passwordRepeat", "Passwörter sind nicht identisch!");
+		}
+	}
 	
 	
 	

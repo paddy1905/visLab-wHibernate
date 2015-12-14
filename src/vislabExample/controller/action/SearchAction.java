@@ -18,7 +18,7 @@ import vislabExample.model.db.Product;
 
 
 
-public class SearchAction extends ActionSupport implements Preparable{
+public class SearchAction extends ActionSupport {
 	
 	/**
 	 * 
@@ -60,6 +60,7 @@ public class SearchAction extends ActionSupport implements Preparable{
 		}
 		
 		result = productManager.getProductsBySearch(description, priceMin, priceMax, categoryForSearch, date, dateMax);
+		resultCat = categoryManager.getAllAvailableCategories();
 		
 		return "success";
 	}
@@ -127,11 +128,4 @@ public class SearchAction extends ActionSupport implements Preparable{
 	public void setReleaseDateMax(String releaseDateMax) {
 		this.releaseDateMax = releaseDateMax;
 	}
-
-	@Override
-	public void prepare() throws Exception {
-		CategoryManager categoryManager = new CategoryManager();
-		
-		resultCat = categoryManager.getAllAvailableCategories();	
-	}		
 }

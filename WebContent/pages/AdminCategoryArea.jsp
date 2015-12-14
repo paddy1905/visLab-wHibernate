@@ -41,14 +41,13 @@
   							<s:form action="createCategory" theme ="simple">		
 								<div class ="form-group">
 									<label>Kategorienummer <font color="red">*</font></label>
-									<s:textfield name="catNr"  placeholder="4" cssClass = "form-control"/>
+									<s:textfield name="catNr" type="number" min="1" placeholder="4" cssClass = "form-control"/>
 									<s:fielderror fieldName="catNr" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 								</div>
 								
 								<div class ="form-group">
-									<label>Name <font color="red">*</font></label>
+									<label>Name</label>
 									<s:textfield name="name" placeholder="Winterjacken" cssClass = "form-control"/>
-									<s:fielderror fieldName="name" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
 								</div>
 														
 								<div class = "pull-right">

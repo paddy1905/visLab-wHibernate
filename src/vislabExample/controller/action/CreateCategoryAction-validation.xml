@@ -5,12 +5,7 @@
     <field name="catNr">
         <field-validator type="int">
         <param name="min">1</param>
-            <message>Die Nr muss größer als 0 sein</message>
-        </field-validator>
-    </field>
-    <field name="name">
-        <field-validator type="requiredstring">
-            <message>Bitte einen Namen angeben</message>
+            <message>Bitte geben Sie eine Nummer an</message>
         </field-validator>
     </field>
 </validators>

@@ -42,13 +42,11 @@
 									<div class ="row">
 										<div class ="form-group col-xs-6">
 											<label>Preis minimum</label>
-											<s:textfield name="priceMin" placeholder="15" cssClass = "form-control"/>
-											<s:fielderror fieldName="priceMin" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
+											<s:textfield name="priceMin" type="number" step="0.01" min="0" placeholder="15" cssClass = "form-control"/>
 										</div>	
 										<div class ="form-group col-xs-6">
 											<label>Preis maximum</label>
-											<s:textfield name="priceMax" placeholder="30" cssClass = "form-control"/>
-											<s:fielderror fieldName="priceMax" cssStyle="color: #DE3A75; list-style: none; margin-top:5px"/>
+											<s:textfield name="priceMax" type="number" step="0.01" min="0" placeholder="30" cssClass = "form-control"/>
 										</div>
 									</div>
 									
