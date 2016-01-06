@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import com.opensymphony.xwork2.ActionSupport;
 
 import vislabExample.model.bl.CategoryManager;
-import vislabExample.model.bl.ProductManager;
 import vislabExample.model.db.Category;
-import vislabExample.model.db.Product;
+
 
 
 
@@ -26,11 +25,10 @@ public class DeleteCategoryAction extends ActionSupport{
 		CategoryManager categoryManager = new CategoryManager();
 		Category category = categoryManager.getCategoryWithPrimaryKey(catIdFromSelectDelete);
 		
-		boolean deleted = categoryManager.deleteCategoryWithKey(category);
+		categoryManager.deleteCategoryWithKey(category);
 		catResult = categoryManager.getAllAvailableCategories();
 		
 		addActionMessage("Kategorie gelöscht");
-		
 		
 		return "success";
 	}

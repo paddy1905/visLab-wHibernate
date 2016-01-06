@@ -4,9 +4,8 @@ package vislabExample.controller.action;
 
 
 import vislabExample.model.bl.CategoryManager;
-import vislabExample.model.bl.ProductManager;
 import vislabExample.model.db.Category;
-import vislabExample.model.db.Product;
+
 
 
 public class EditShowCategoryAction extends BaseCategoryEditAction {

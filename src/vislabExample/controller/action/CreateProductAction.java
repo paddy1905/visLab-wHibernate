@@ -8,7 +8,6 @@ import java.util.Date;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
-import com.sun.xml.internal.bind.v2.TODO;
 
 import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;

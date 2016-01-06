@@ -10,7 +10,7 @@ package vislabExample.controller.action;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.apache.struts2.interceptor.validation.SkipValidation;
+
 
 import com.opensymphony.xwork2.Preparable;
 
@@ -49,9 +49,6 @@ public class EditShowProductAction extends BaseProductEditAction implements Prep
 		result = productManager.getAllProducts();
 		catResult = categoryManager.getAllAvailableCategories();
 		
-		System.out.println(product.getReleaseDate());
-		System.out.println(newDate);
-		
 		return "success";
 	}
 
@@ -62,9 +59,6 @@ public class EditShowProductAction extends BaseProductEditAction implements Prep
 		CategoryManager categoryManager = new CategoryManager();
 		
 		result = productManager.getAllProducts();
-		catResult =categoryManager.getAllAvailableCategories();
-		
-	}
-
-	
+		catResult =categoryManager.getAllAvailableCategories();	
+	}	
 }

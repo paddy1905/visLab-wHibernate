@@ -35,7 +35,8 @@ public class RegisterAction extends ActionSupport {
 			}
 			return "success";
 		} else {
-			return "fail";
+			addFieldError("username","Benutzername schon vergeben");
+			return "input";
 		}	
 	}
 	
@@ -44,18 +45,6 @@ public class RegisterAction extends ActionSupport {
 			addFieldError("passwordRepeat", "Passwörter sind nicht identisch!");
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public String getUsername() {
 		return username;

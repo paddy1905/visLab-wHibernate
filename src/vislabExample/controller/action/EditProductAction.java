@@ -8,7 +8,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.opensymphony.xwork2.Preparable;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
 import vislabExample.model.bl.CategoryManager;
@@ -45,7 +44,7 @@ public class EditProductAction extends BaseProductEditAction {
 			}
 		}
 
-		boolean updated = productManager.editProduct(product);
+		productManager.editProduct(product);
 		
 		result = productManager.getAllProducts();
 		catResult = categoryManager.getAllAvailableCategories();

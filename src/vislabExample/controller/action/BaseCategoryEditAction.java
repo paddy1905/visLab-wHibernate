@@ -5,11 +5,8 @@ package vislabExample.controller.action;
 import java.util.ArrayList;
 
 import com.opensymphony.xwork2.ActionSupport;
-
-import vislabExample.model.bl.CategoryManager;
-import vislabExample.model.bl.ProductManager;
 import vislabExample.model.db.Category;
-import vislabExample.model.db.Product;
+
 
 public class BaseCategoryEditAction extends ActionSupport {
 	

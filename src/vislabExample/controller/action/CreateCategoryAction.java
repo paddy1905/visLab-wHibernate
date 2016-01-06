@@ -43,7 +43,7 @@ public class CreateCategoryAction extends ActionSupport implements Preparable{
 			catResult = categoryManager.getAllAvailableCategories();
 			return "success";
 		} else {
-			boolean created = categoryManager.createNewCategory(category);
+			categoryManager.createNewCategory(category);
 			catResult = categoryManager.getAllAvailableCategories();
 			
 			addActionMessage("Erfolgreich angelegt");

@@ -5,11 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.Preparable;
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
+
 
 import vislabExample.model.bl.CategoryManager;
 import vislabExample.model.bl.ProductManager;

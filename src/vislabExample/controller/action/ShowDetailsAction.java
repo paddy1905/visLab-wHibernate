@@ -41,10 +41,8 @@ public class ShowDetailsAction extends ActionSupport {
 	
 	public String execute() throws Exception {
 		ProductManager productManager = new ProductManager();
-		System.out.println(detailKey);
 		Product product = productManager.getProductForPrimaryKey(detailKey);
 	
-		
 		setProdNr(product.getId());
 		setName(product.getName());
 		setDescription(product.getDescription());
